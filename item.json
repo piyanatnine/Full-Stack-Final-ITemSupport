@@ -1,0 +1,26 @@
+{
+  "$jsonSchema": {
+    "required": [
+      "name",
+      "inStock"
+    ],
+    "properties": {
+      "name": {
+        "bsonType": "string",
+        "description": "Item name, string (required)"
+      },
+      "description": {
+        "bsonType": "string",
+        "description": "Item description, string"
+      },
+      "imageUrl": {
+        "bsonType": "string",
+        "description": "Image url, string"
+      },
+      "inStock": {
+        "bsonType": "int",
+        "description": "Number of item in stock, int (required)"
+      }
+    }
+  }
+}
