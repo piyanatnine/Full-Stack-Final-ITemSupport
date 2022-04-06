@@ -1,20 +1,23 @@
 [
     {
-        "name": "",
-        "description": "",
+        "name": "USB Keyboard",
+        "description": "Simple USB Keyboard",
         "imageUrl": "",
-        "inStock": 0
+        "owned": 10,
+        "inStock": 10
     },
     {
-        "name": "",
-        "description": "",
+        "name": "Extension Plug",
+        "description": "Extension Plug",
         "imageUrl": "",
-        "inStock": 0
+        "owned": 5,
+        "inStock": 5
     },
     {
-        "name": "",
-        "description": "",
+        "name": "Cat6 UTP Ethernet (2m)",
+        "description": "Cat6 Unshield-Twisted-Par Ethernet Cable",
         "imageUrl": "",
-        "inStock": 0
+        "owned": 10,
+        "inStock": 10
     }
 ]

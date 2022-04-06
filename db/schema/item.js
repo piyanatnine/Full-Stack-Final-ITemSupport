@@ -16,6 +16,11 @@ const ItemSchema = new Schema({
         type: String,
         default: null
     },
+    owned: {
+        type: Schema.Types.Number,
+        required: true,
+        default: 0
+    },
     inStock: {
         type: Schema.Types.Number,
         required: true,

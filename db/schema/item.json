@@ -2,6 +2,7 @@
   "$jsonSchema": {
     "required": [
       "name",
+      "owned",
       "inStock"
     ],
     "properties": {
@@ -16,6 +17,10 @@
       "imageUrl": {
         "bsonType": "string",
         "description": "Image url, string"
+      },
+      "owned": {
+        "bsonType": "int",
+        "description": "Number of item owned, int (required)"
       },
       "inStock": {
         "bsonType": "int",
