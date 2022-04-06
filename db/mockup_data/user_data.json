@@ -1,0 +1,32 @@
+[
+    {
+        "username": "it62070085",
+        "name": "Tanate S",
+        "imageUrl": "",
+        "privilege": 1
+    },
+    {
+        "username": "it62070088",
+        "name": "Tawatchat H",
+        "imageUrl": "",
+        "privilege": 1
+    },
+    {
+        "username": "it62070119",
+        "name": "Piyanat S",
+        "imageUrl": "",
+        "privilege": 1
+    },
+    {
+        "username": "it62070228",
+        "name": "Ukrit S",
+        "imageUrl": "",
+        "privilege": 1
+    },
+    {
+        "username": "admin01",
+        "name": "Admin01",
+        "imageUrl": "",
+        "privilege": 0
+    }
+]
