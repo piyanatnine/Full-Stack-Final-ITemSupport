@@ -1,5 +1,6 @@
 [
     {
+        "itemCode": "usb_keyboard",
         "name": "USB Keyboard",
         "description": "Simple USB Keyboard",
         "imageUrl": "",
@@ -7,17 +8,19 @@
         "inStock": 10
     },
     {
+        "itemCode": "extension_plug",
         "name": "Extension Plug",
         "description": "Extension Plug",
         "imageUrl": "",
         "owned": 5,
-        "inStock": 5
+        "inStock": 4
     },
     {
+        "itemCode": "cat6_cable",
         "name": "Cat6 UTP Ethernet (2m)",
         "description": "Cat6 Unshield-Twisted-Par Ethernet Cable",
         "imageUrl": "",
         "owned": 10,
-        "inStock": 10
+        "inStock": 9
     }
 ]

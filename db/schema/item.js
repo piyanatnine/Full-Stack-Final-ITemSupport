@@ -1,12 +1,16 @@
 import { Schema } from 'mongoose';
 const ItemSchema = new Schema({
-    name: {
+    itemCode: {
         type: String,
         required: true,
         index: true,
         unique: true,
         lowercase: true,
         trim: true,
+    },
+    name: {
+        type: String,
+        required: true,
     },
     description: {
         type: String,

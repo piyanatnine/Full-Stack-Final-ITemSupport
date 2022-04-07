@@ -1,11 +1,16 @@
 {
   "$jsonSchema": {
     "required": [
+      "itemCode",
       "name",
       "owned",
       "inStock"
     ],
     "properties": {
+      "itemCode": {
+        "bsonType": "string",
+        "description": "Item code, string (required)"
+      },
       "name": {
         "bsonType": "string",
         "description": "Item name, string (required)"
