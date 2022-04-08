@@ -10,10 +10,11 @@ export default function CardItem(props){
         <Card className='Card' style={{padding: 10, flexDirection: "row",width: '50%'}}>
                                     <Image src={require('../image-placeholder.jpg')} style={{width: "200px", height: "auto"}} />
                                     <Card.Body style={{textAlign: 'left'}}>
-                                        
-                                        
                                         <Card.Title>{itemData.name}</Card.Title>
-                                        <Card.Text>{itemData.description}</Card.Text>
+                                        <Card.Text>
+                                            {itemData.description}
+                                        </Card.Text>
+                                        <Card.Text>Instock: {itemData.inStock}</Card.Text>
                                         <Button variant="primary">ดูรายละเอียด</Button>
                                     </Card.Body>
                                     </Card>
