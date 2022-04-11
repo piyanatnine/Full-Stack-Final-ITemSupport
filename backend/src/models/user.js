@@ -3,15 +3,37 @@ import { model, Schema } from 'mongoose'
 
 const UserSchema = new Schema({
     name: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
-    age: {
+    username: {
+      type: String,
+      required: true,
+      index: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      lowercase: true,
+      trim: true,
+      default: null,
+    },
+    imageUrl: {
         type: String,
-        required: true
+        default: null
+    },
+    privilege: {
+        type: Schema.Types.Number,
+        required: true,
+        default: 1  
     }
-}
-)
+})
 
 export const UserModel = model('user', UserSchema)
 
