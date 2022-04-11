@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "test",
+    "start": "node -r @babel/register src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piyanatnine/Full-Stack-Final-ITemSupport.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/piyanatnine/Full-Stack-Final-ITemSupport/issues"
+  },
+  "homepage": "https://github.com/piyanatnine/Full-Stack-Final-ITemSupport#readme",
+  "dependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/register": "^7.17.7",
+    "apollo-server-core": "^3.6.7",
+    "apollo-server-express": "^3.6.7",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "graphql": "^16.3.0",
+    "graphql-compose": "^9.0.8",
+    "graphql-compose-mongoose": "^9.7.1",
+    "mongoose": "^6.2.10"
+  }
+}
