@@ -5,7 +5,7 @@ import { ApolloServer } from 'apollo-server-express'
 import cors from 'cors'
 import express from 'express'
 
-import '../mongoose-connect'
+import '../mongooes-connect'
 // eslint-disable-next-line import/order
 import schema from './graphql'
 
@@ -14,9 +14,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
-app.listen(3000, () => {
-  console.log(`Example app listening at http://localhost:3000`)
-})
+// app.listen(3000, () => {
+//   console.log(`Example app listening at http://localhost:3000`)
+// })
 
 app.get('/test', (req, res) => {
   res.json({ message: 'hiiii' })

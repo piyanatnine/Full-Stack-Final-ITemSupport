@@ -7,7 +7,7 @@ const UserSchema = new Schema({
         required: true
     },
     age: {
-        type: Int32Array,
+        type: String,
         required: true
     }
 }
