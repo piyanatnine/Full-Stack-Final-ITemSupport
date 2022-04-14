@@ -36,5 +36,4 @@ const UserSchema = new Schema({
 })
 
 export const UserModel = model('user', UserSchema)
-
 export const UserTC = composeWithMongoose(UserModel)
