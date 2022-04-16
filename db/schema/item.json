@@ -23,13 +23,9 @@
         "bsonType": "string",
         "description": "Image url, string"
       },
-      "owned": {
-        "bsonType": "int",
-        "description": "Number of item owned, int (required)"
-      },
-      "inStock": {
-        "bsonType": "int",
-        "description": "Number of item in stock, int (required)"
+      "tags": {
+        "bsonType": "array",
+        "description": "Tags, array"
       }
     }
   }

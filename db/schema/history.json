@@ -2,7 +2,7 @@
     "$jsonSchema": {
         "required": [
             "username",
-            "item_name",
+            "itemCode",
             "startTime"
         ],
         "properties": {
@@ -10,7 +10,7 @@
                 "bsonType": "string",
                 "description": "Username of borrower, string (required)"
             },
-            "item_name": {
+            "itemCode": {
                 "bsonType": "string",
                 "description": "Name of item borrowed, string (required)"
             },
