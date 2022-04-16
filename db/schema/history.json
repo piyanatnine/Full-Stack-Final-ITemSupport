@@ -8,11 +8,13 @@
         "properties": {
             "username": {
                 "bsonType": "string",
-                "description": "Username of borrower, string (required)"
+                "description": "Username of borrower, string (required)",
+                "ref": "users"
             },
             "itemCode": {
                 "bsonType": "string",
-                "description": "Name of item borrowed, string (required)"
+                "description": "Name of item borrowed, string (required)",
+                "ref": "items"
             },
             "startTime": {
                 "bsonType": "date",
