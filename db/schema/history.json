@@ -15,12 +15,12 @@
                 "description": "Name of item borrowed, string (required)"
             },
             "startTime": {
-                "bsonType": "timestamp",
-                "description": "Start timestamp of borrowing, timestamp (required)"
+                "bsonType": "date",
+                "description": "Start time of borrowing, date (required)"
             },
             "endTime": {
-                "bsonType": "timestamp",
-                "description": "End timestamp of borrowing, timestamp"
+                "bsonType": "date",
+                "description": "End time of borrowing, date"
             }
         }
     }
