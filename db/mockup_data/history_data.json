@@ -2,19 +2,25 @@
     {
         "username": "it62070088",
         "itemCode": "usbk01",
-        "startTime": "2022-04-01T9:36:59.414Z",
-        "endTime": "2022-04-03T9:36:59.414Z"
+        "status": "returned",
+        "createdAt": "2022-04-01T9:36:59.414Z",
+        "updatedAt": "2022-04-03T9:36:59.414Z",
+        "_ver": "1"
     },
     {
         "username": "it62070085",
         "itemCode": "cat6e01",
-        "startTime": "2022-04-01T9:36:59.414Z",
-        "endTime": ""
+        "status": "borrowing",
+        "createdAt": "2022-04-01T9:36:59.414Z",
+        "updatedAt": "2022-04-01T9:36:59.414Z",
+        "_ver": "0"
     },
     {
         "username": "it62070119",
         "itemCode": "explug01",
-        "startTime": "2022-04-01T9:36:59.414Z",
-        "endTime": ""
+        "status": "borrowing",
+        "createdAt": "2022-04-01T9:36:59.414Z",
+        "updatedAt": "2022-04-01T9:36:59.414Z",
+        "_ver": "0"
     }
 ]

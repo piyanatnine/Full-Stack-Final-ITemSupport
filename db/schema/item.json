@@ -2,9 +2,7 @@
   "$jsonSchema": {
     "required": [
       "itemCode",
-      "name",
-      "owned",
-      "inStock"
+      "name"
     ],
     "properties": {
       "itemCode": {

@@ -4,20 +4,15 @@ const HistorySchema = new Schema({
         type: String,
         required: true,
         lowercase: true,
-        ref: "users"
       },
     itemCode: {
         type: String,
         required: true,
         lowercase: true,
-        ref: "items"
     },
-    startTime: {
-        type: Date,
-        required: true
-    },
-    endTime: {
-        type: Date,
-        default: null
+    status: {
+        type: String,
+        required: true,
+        default: "borrowing"
     }
-})
+}, {timestamps: true})

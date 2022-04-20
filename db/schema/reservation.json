@@ -1,22 +1,27 @@
 {
     "$jsonSchema": {
         "required": [
-            "username",
             "itemCode",
+            "username",
+            "reservedTime",
             "status"
         ],
         "properties": {
-            "username": {
-                "bsonType": "string",
-                "description": "Username of borrower, string (required)"
-            },
             "itemCode": {
                 "bsonType": "string",
-                "description": "Name of item borrowed, string (required)"
+                "description": "Item code, string (required)"
+            },
+            "username": {
+                "bsonType": "string",
+                "description": "Username, string (required)"
+            },
+            "reservedTime": {
+                "bsonType": "date",
+                "description": "Reserved time, date (required)"
             },
             "status": {
                 "bsonType": "string",
-                "description": "Status of borrowing, string (required)"
+                "description": "Status, string (required)"
             },
             "createdAt": {
                 "bsonType": "date"
