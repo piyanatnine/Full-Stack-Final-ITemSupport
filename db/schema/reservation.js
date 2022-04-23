@@ -20,3 +20,5 @@ const ReservationSchema = new Schema({
         default: "waiting"
     }
 }, {timestamps: true})
+
+//status: {'waiting', 'complated', 'canceled'}
