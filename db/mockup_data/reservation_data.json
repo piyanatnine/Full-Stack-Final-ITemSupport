@@ -1,0 +1,47 @@
+[
+    {
+        "username": "it62070088",
+        "itemCode": "usbk01",
+        "status": "completed",
+        "reservedTime": "2022-04-01T9:36:59.414Z",
+        "createdAt": "2022-03-31T9:36:59.414Z",
+        "updatedAt": "2022-04-01T9:36:59.414Z",
+        "_ver": "1"
+    },
+    {
+        "username": "it62070085",
+        "itemCode": "cat6e01",
+        "status": "completed",
+        "reservedTime": "2022-04-01T9:36:59.414Z",
+        "createdAt": "2022-03-31T9:36:59.414Z",
+        "updatedAt": "2022-04-01T9:36:59.414Z",
+        "_ver": "1"
+    },
+    {
+        "username": "it62070119",
+        "itemCode": "explug01",
+        "status": "completed",
+        "reservedTime": "2022-04-01T9:36:59.414Z",
+        "createdAt": "2022-03-31T9:36:59.414Z",
+        "updatedAt": "2022-04-01T9:36:59.414Z",
+        "_ver": "1"
+    },
+    {
+        "username": "it62070228",
+        "itemCode": "usbk02",
+        "status": "waiting",
+        "reservedTime": "2022-04-10T9:36:59.414Z",
+        "createdAt": "2022-04-02T9:36:59.414Z",
+        "updatedAt": "2022-04-02T9:36:59.414Z",
+        "_ver": "0"
+    },
+    {
+        "username": "it6207088",
+        "itemCode": "usbk02",
+        "status": "canceled",
+        "reservedTime": "2022-03-31T9:36:59.414Z",
+        "createdAt": "2022-03-29T9:36:59.414Z",
+        "updatedAt": "2022-03-30T9:36:59.414Z",
+        "_ver": "1"
+    }
+]
