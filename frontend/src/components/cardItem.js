@@ -1,13 +1,10 @@
 import '../App.css';
-import { Card, Image, Button } from 'react-bootstrap';
-import { Link } from "react-router-dom";
-import { useState } from 'react';
+import { Card, Image } from 'react-bootstrap';
 
 export default function CardItem(props){
     const itemData = props.item
-    console.log(itemData)
     return(
-        <Card className='Card' style={{padding: 10, flexDirection: "row",width: '50%'}}>
+        <div style={{display: "flex", flexDirection: "row",justifyContent: "flex-start"}}>
                                     <Image src={require('../image-placeholder.jpg')} style={{width: "200px", height: "auto"}} />
                                     <Card.Body style={{textAlign: 'left'}}>
                                         <Card.Title>{itemData.name}</Card.Title>
@@ -15,8 +12,9 @@ export default function CardItem(props){
                                             {itemData.description}
                                         </Card.Text>
                                         <Card.Text>Instock: {itemData.inStock}</Card.Text>
-                                        <Button variant="primary">ดูรายละเอียด</Button>
+                                        
                                     </Card.Body>
-                                    </Card>
+        </div>
+                                    
     );
 }
