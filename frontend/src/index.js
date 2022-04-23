@@ -5,10 +5,11 @@ import { BrowserRouter,
   Route,
  } from 'react-router-dom';
 import './index.css';
+
 import App from './App';
 import DetailItem from "./routes/detailItem"
 import ListItem from './routes/listItem';
-import Login from './routes/login'
+import Login from './routes/login';
 import "bootstrap/dist/css/bootstrap.min.css";
 import reportWebVitals from './reportWebVitals';
 import {
