@@ -12,7 +12,6 @@ export default function DetailItem(){
       )
     })
   }
-
   return (
     <div className="App">
       <header className="App-header">

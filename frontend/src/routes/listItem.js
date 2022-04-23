@@ -1,13 +1,35 @@
 import '../App.css';
-import { Card, Container, Image, Row } from 'react-bootstrap';
-import { Link } from "react-router-dom";
-import { useState } from 'react';
+import { Container,  Row, Button } from 'react-bootstrap';
+import { useNavigate  } from "react-router-dom";
 import CardItem from '../components/cardItem';
+import { Card } from 'react-bootstrap';
+import {
+  useQuery,
+  gql
+} from "@apollo/client";
+import { useEffect,useState } from 'react';
 
 export default function ListItem() {
-  const [items, setItem] = useState([{"name":"1","description":"Test Item","inStock":3},
-  {"name":"2","description":"Test Item","inStock":3}, {"name":"3","description":"Test Item","inStock":3},
-  {"name":"4","description":"Test Item","inStock":3},{"name":"5","description":"Test Item","inStock":3}])
+
+  const navigate = useNavigate();
+  // const [items, setItem] = useState([])
+  const [navi, setnavi] = useState('');
+  const ITEM_DATA = gql`
+    query GetItems {
+      item {
+        itemCode
+        name
+        description
+        inStock
+      }
+    }
+    `;
+
+  const { loading, error, data } = useQuery(ITEM_DATA);
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+  console.log(data.item)
 
   function renderListcol(list){
     let itembyrow = [];
@@ -21,15 +43,26 @@ export default function ListItem() {
     return itembyrow;
   } 
 
+    function handleClick(itemdata) {
+      navigate("/detail", { state: { itemData: itemdata } });
+      // item[0].itemCode
+      }
+
   return (
     <div className="App">
       <header className="App-header">
-        
+      
       </header>
       <Container>
-        {renderListcol(items).map((item, index) => <Row key={index} style={{margin: 10}}>
+        {renderListcol(data.item).map((item, index) => <Row key={index} style={{margin: 10}}>
+        <Card className='Card' style={{padding: 10, width: '50%'}}>
           <CardItem item={item[0]}/>
-          {item.length > 1 ? <CardItem item={item[1]}/> : <div/>}
+          <Button onClick={() => handleClick(item[0])} variant="primary" style={{marginTop:"5px"}}>ดูรายละเอียด</Button>
+        </Card>
+          {item.length > 1 ? <Card className='Card' style={{padding: 10, width: '50%'}}>
+            <CardItem item={item[1]}/>
+            <Button onClick={() => handleClick(item[1])} variant="primary" style={{marginTop:"5px"}}>ดูรายละเอียด</Button>
+            </Card> : <div/>}
            </Row>)}
       </Container>
     </div>

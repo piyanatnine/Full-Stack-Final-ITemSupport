@@ -12,17 +12,32 @@ import ListItem from './routes/listItem';
 import Login from './routes/login';
 import "bootstrap/dist/css/bootstrap.min.css";
 import reportWebVitals from './reportWebVitals';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  
+} from "@apollo/client";
 
 const rootElement = document.getElementById("root");
+
+const client = new ApolloClient({
+  uri: 'http://localhost:3001/graphql',
+  cache: new InMemoryCache()
+});
+
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="item" element={<DetailItem />} />
-        <Route path="list" element={<ListItem />} />
-        <Route path="login" element={<Login />} />
-    </Routes>
-  </BrowserRouter>,
+  <ApolloProvider client={client}>
+      <BrowserRouter>
+      <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="detail" element={<DetailItem />} />
+          <Route path="list" element={<ListItem />} />
+          <Route path="login" element={<Login />} />
+        </Routes>
+    </BrowserRouter>
+  </ApolloProvider>
+  ,
   rootElement
 );
 
