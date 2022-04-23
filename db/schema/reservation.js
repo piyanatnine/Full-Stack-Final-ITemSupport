@@ -1,18 +1,22 @@
 import { Schema } from 'mongoose';
-const HistorySchema = new Schema({
+const ReservationSchema = new Schema({
     username: {
         type: String,
         required: true,
         lowercase: true,
       },
-    item_name: {
+    itemCode: {
         type: String,
         required: true,
         lowercase: true,
     },
-    returned: {
-        type: Boolean,
+    reservedTime: {
+        type: Date,
+        required: true
+    },
+    status: {
+        type: String,
         required: true,
-        default: false
+        default: "waiting"
     }
 }, {timestamps: true})

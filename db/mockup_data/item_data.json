@@ -1,26 +1,56 @@
 [
     {
-        "itemCode": "usb_keyboard",
-        "name": "USB Keyboard",
+        "itemCode": "usbk01",
+        "name": "USB Keyboard#1",
         "description": "Simple USB Keyboard",
         "imageUrl": "",
-        "owned": 10,
-        "inStock": 10
+        "tags": [
+            "keyboard"
+        ]
     },
     {
-        "itemCode": "extension_plug",
-        "name": "Extension Plug",
+        "itemCode": "usbk02",
+        "name": "USB Keyboard#2",
+        "description": "Simple USB Keyboard",
+        "imageUrl": "",
+        "tags": [
+            "keyboard"
+        ]
+    },
+    {
+        "itemCode": "explug01",
+        "name": "Extension Plug#1",
         "description": "Extension Plug",
         "imageUrl": "",
-        "owned": 5,
-        "inStock": 4
+        "tags": [
+            "extension plug"
+        ]
     },
     {
-        "itemCode": "cat6_cable",
-        "name": "Cat6 UTP Ethernet (2m)",
+        "itemCode": "explug02",
+        "name": "Extension Plug#2",
+        "description": "Extension Plug",
+        "imageUrl": "",
+        "tags": [
+            "extension plug"
+        ]
+    },
+    {
+        "itemCode": "cat6e01",
+        "name": "Cat6 UTP Ethernet (2m)#1",
         "description": "Cat6 Unshield-Twisted-Par Ethernet Cable",
         "imageUrl": "",
-        "owned": 10,
-        "inStock": 9
+        "tags": [
+            "cat6_ethernet"
+        ]
+    },
+    {
+        "itemCode": "cat6e02",
+        "name": "Cat6 UTP Ethernet (2m)#2",
+        "description": "Cat6 Unshield-Twisted-Par Ethernet Cable",
+        "imageUrl": "",
+        "tags": [
+            "cat6_ethernet"
+        ]
     }
 ]
