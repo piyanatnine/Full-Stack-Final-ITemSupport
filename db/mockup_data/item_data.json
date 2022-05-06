@@ -3,7 +3,7 @@
         "itemCode": "usbk01",
         "name": "USB Keyboard#1",
         "description": "Simple USB Keyboard",
-        "imageUrl": "",
+        "imageUrl": "https://i.imgur.com/TnytYZJ.jpg",
         "tags": [
             "keyboard"
         ]
@@ -12,7 +12,7 @@
         "itemCode": "usbk02",
         "name": "USB Keyboard#2",
         "description": "Simple USB Keyboard",
-        "imageUrl": "",
+        "imageUrl": "https://i.imgur.com/TnytYZJ.jpg",
         "tags": [
             "keyboard"
         ]
@@ -21,7 +21,7 @@
         "itemCode": "explug01",
         "name": "Extension Plug#1",
         "description": "Extension Plug",
-        "imageUrl": "",
+        "imageUrl": "https://i.imgur.com/2AGxBZ7.jpg",
         "tags": [
             "extension plug"
         ]
@@ -30,7 +30,7 @@
         "itemCode": "explug02",
         "name": "Extension Plug#2",
         "description": "Extension Plug",
-        "imageUrl": "",
+        "imageUrl": "https://i.imgur.com/2AGxBZ7.jpg",
         "tags": [
             "extension plug"
         ]
@@ -39,7 +39,7 @@
         "itemCode": "cat6e01",
         "name": "Cat6 UTP Ethernet (2m)#1",
         "description": "Cat6 Unshield-Twisted-Par Ethernet Cable",
-        "imageUrl": "",
+        "imageUrl": "https://i.imgur.com/QDyjU9L.jpg",
         "tags": [
             "cat6_ethernet"
         ]
@@ -48,7 +48,7 @@
         "itemCode": "cat6e02",
         "name": "Cat6 UTP Ethernet (2m)#2",
         "description": "Cat6 Unshield-Twisted-Par Ethernet Cable",
-        "imageUrl": "",
+        "imageUrl": "https://i.imgur.com/QDyjU9L.jpg",
         "tags": [
             "cat6_ethernet"
         ]
