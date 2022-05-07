@@ -164,6 +164,7 @@ window.env = {
   "npm_package_browserslist_production_0": ">0.2%",
   "npm_package_browserslist_production_1": "not dead",
   "npm_package_browserslist_production_2": "not op_mini all",
+  "npm_package_dependencies_firebase": "^9.8.0",
   "npm_package_dependencies_react": "^18.1.0",
   "npm_package_dependencies_react_dom": "^18.1.0",
   "npm_package_dependencies_react_dotenv": "^0.1.3",
