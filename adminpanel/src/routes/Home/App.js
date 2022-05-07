@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
- 
 
 //components
 import Header from "./components/header";
@@ -10,6 +9,10 @@ import Footer from "./components/footer";
 function App() {
   //props
   const [navBar, setNavBar] = useState(true)
+  const [user, setUser] = useState({
+    name: 'Mr.Test',
+    img: "https://pbs.twimg.com/media/FRmR0TUVgAA7zmF?format=jpg&name=small"
+  })
   const toggle = () => {
     setNavBar(!navBar)
   }
@@ -18,7 +21,7 @@ function App() {
     <div className="App bg-slate-100 h-screen">
         <div className="flex">
           <Navbar show={navBar}/>      
-          <Header click={toggle} show={navBar} /> 
+          <Header click={toggle} show={navBar} user={user}/> 
         </div>
 
     </div>
