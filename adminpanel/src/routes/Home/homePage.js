@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import firebase, { auth } from '../../firebase.config';
-import {Navigate} from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-//components
+//Components
 import Header from "./components/header";
 import Navbar from "./components/navbar";
 import Sidebar from "./components/sidebar";
@@ -11,10 +11,8 @@ import Footer from "./components/footer";
 function App() {
   //props
   const [navBar, setNavBar] = useState(true)
-  const [user, setUser] = useState({
-    name: 'Mr.Test',
-    img: "https://pbs.twimg.com/media/FRmR0TUVgAA7zmF?format=jpg&name=small"
-  })
+  const [user, setUser] = useState({})
+  
   const toggle = () => {
     setNavBar(!navBar)
   }
@@ -23,6 +21,7 @@ function App() {
     await auth.signOut();
     localStorage.removeItem('User');
     //กลับไปหน้า login
+    window.location.reload();
   }
   
   useEffect(()=> {

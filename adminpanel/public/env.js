@@ -2,7 +2,7 @@ window.env = {
   "ALLUSERSPROFILE": "C:\\ProgramData",
   "ANDROID_HOME": "C:\\Users\\piyan\\AppData\\Local\\Android\\Sdk",
   "APPDATA": "C:\\Users\\piyan\\AppData\\Roaming",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_1036_SNYVIVWSJYKEUIAR",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_19288_LSHNNRHYVSDMOPVE",
   "COLORTERM": "truecolor",
   "CommonProgramFiles": "C:\\Program Files\\Common Files",
   "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
@@ -13,6 +13,8 @@ window.env = {
   "dp0": "C:\\Users\\piyan\\Desktop\\Full-Stack-Final-ITemSupport\\adminpanel\\node_modules\\.bin\\",
   "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
   "ERLANG_HOME": "C:\\Program Files\\erl-24.1",
+  "FPS_BROWSER_APP_PROFILE_STRING": "Internet Explorer",
+  "FPS_BROWSER_USER_PROFILE_STRING": "Default",
   "GIT_ASKPASS": "c:\\Users\\piyan\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh",
   "GOOGLE_API_KEY": "no",
   "GOOGLE_DEFAULT_CLIENT_ID": "no",
@@ -193,7 +195,7 @@ window.env = {
   "OneDrive": "C:\\Users\\piyan\\OneDrive",
   "ORIGINAL_XDG_CURRENT_DESKTOP": "undefined",
   "OS": "Windows_NT",
-  "Path": "C:\\Users\\piyan\\AppData\\Roaming\\nvm\\v14.17.4\\node_modules\\npm\\node_modules\\npm-lifecycle\\node-gyp-bin;C:\\Users\\piyan\\Desktop\\Full-Stack-Final-ITemSupport\\adminpanel\\node_modules\\.bin;C:\\Users\\piyan\\Desktop\\full-stack\\test\\node_modules\\.bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NGX;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Users\\piyan\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\java\\jdk-16.0.2\\bin;C:\\Users\\piyan\\AppData\\Roaming\\nvm;C:\\Program Files\\nodejs;C:\\Program Files\\MongoDB\\Server\\5.0\\bin;C:\\Users\\piyan\\AppData\\Local\\Programs\\Python\\Python38-32\\Scripts\\;C:\\Users\\piyan\\AppData\\Local\\Programs\\Python\\Py;C:\\Users\\piyan\\kubernetes\\Minikube;C:\\Program Files\\Amazon\\AWSCLIV2\\;C:\\Users\\piyan\\AppData\\Local\\Programs\\Python\\Python38-32\\Scripts\\;C:\\Users\\piyan\\AppData\\Local\\Programs\\Python\\Python38-32\\;C:\\Users\\piyan\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program Files (x86)\\Java\\jre1.8.0_221\\bin;C:\\Users\\piyan\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\piyan\\AppData\\Local\\GitHubDesktop\\bin;C:\\MinGW\\bin;C:\\Users\\piyan\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program Files\\JetBrains\\PyCharm Professional Edition with Anaconda plugin 2020.1.2\\bin;;C:\\Users\\piyan\\AppData\\Roaming\\npm;C:\\Users\\piyan\\AppData\\Roaming\\nvm;C:\\Program Files\\nodejs;C:\\Users\\piyan\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Users\\piyan\\AppData\\Local\\Android\\Sdk\\tools;C:\\Users\\piyan\\AppData\\Local\\Android\\Sdk\\tools\\bin;C:\\Users\\piyan\\AppData\\Local\\Android\\Sdk\\emulator;C:\\Program Files\\RabbitMQ Server\\rabbitmq_server-3.9.8\\sbin;C:\\Users\\piyan\\kubernetes;C:\\Users\\piyan\\AppData\\Roaming\\Python\\Python38\\Scripts;",
+  "Path": "C:\\Users\\piyan\\AppData\\Roaming\\nvm\\v14.17.4\\node_modules\\npm\\node_modules\\npm-lifecycle\\node-gyp-bin;C:\\Users\\piyan\\Desktop\\Full-Stack-Final-ITemSupport\\adminpanel\\node_modules\\.bin;C:\\Users\\piyan\\Desktop\\full-stack\\test\\node_modules\\.bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NGX;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\Users\\piyan\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Program Files\\java\\jdk-16.0.2\\bin;C:\\Users\\piyan\\AppData\\Roaming\\nvm;C:\\Program Files\\nodejs;C:\\Program Files\\MongoDB\\Server\\5.0\\bin;C:\\Users\\piyan\\AppData\\Local\\Programs\\Python\\Python38-32\\Scripts\\;C:\\Users\\piyan\\AppData\\Local\\Programs\\Python\\Py;C:\\Users\\piyan\\kubernetes\\Minikube;C:\\Program Files\\Amazon\\AWSCLIV2\\;C:\\Program Files\\Docker\\Docker\\resources\\bin;C:\\ProgramData\\DockerDesktop\\version-bin;C:\\Users\\piyan\\AppData\\Local\\Programs\\Python\\Python38-32\\Scripts\\;C:\\Users\\piyan\\AppData\\Local\\Programs\\Python\\Python38-32\\;C:\\Users\\piyan\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program Files (x86)\\Java\\jre1.8.0_221\\bin;C:\\Users\\piyan\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\piyan\\AppData\\Local\\GitHubDesktop\\bin;C:\\MinGW\\bin;C:\\Users\\piyan\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program Files\\JetBrains\\PyCharm Professional Edition with Anaconda plugin 2020.1.2\\bin;;C:\\Users\\piyan\\AppData\\Roaming\\npm;C:\\Users\\piyan\\AppData\\Roaming\\nvm;C:\\Program Files\\nodejs;C:\\Users\\piyan\\AppData\\Local\\Android\\Sdk\\platform-tools;C:\\Users\\piyan\\AppData\\Local\\Android\\Sdk\\tools;C:\\Users\\piyan\\AppData\\Local\\Android\\Sdk\\tools\\bin;C:\\Users\\piyan\\AppData\\Local\\Android\\Sdk\\emulator;C:\\Program Files\\RabbitMQ Server\\rabbitmq_server-3.9.8\\sbin;C:\\Users\\piyan\\kubernetes;C:\\Users\\piyan\\AppData\\Roaming\\Python\\Python38\\Scripts;",
   "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC",
   "PORT": "8085",
   "PROCESSOR_ARCHITECTURE": "AMD64",
@@ -224,6 +226,5 @@ window.env = {
   "VSCODE_GIT_ASKPASS_NODE": "C:\\Users\\piyan\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
   "VSCODE_GIT_IPC_HANDLE": "\\\\.\\pipe\\vscode-git-6ff28d2f19-sock",
   "windir": "C:\\WINDOWS",
-  "_prog": "node",
-  "__COMPAT_LAYER": "DetectorsAppHealth"
+  "_prog": "node"
 };
