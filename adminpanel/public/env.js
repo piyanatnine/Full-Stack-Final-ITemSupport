@@ -2,7 +2,7 @@ window.env = {
   "ALLUSERSPROFILE": "C:\\ProgramData",
   "ANDROID_HOME": "C:\\Users\\piyan\\AppData\\Local\\Android\\Sdk",
   "APPDATA": "C:\\Users\\piyan\\AppData\\Roaming",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_19288_LSHNNRHYVSDMOPVE",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_17076_NDXLFELKWWUWBSXK",
   "COLORTERM": "truecolor",
   "CommonProgramFiles": "C:\\Program Files\\Common Files",
   "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
@@ -34,7 +34,7 @@ window.env = {
   "npm_config_allow_same_version": "",
   "npm_config_also": "",
   "npm_config_always_auth": "",
-  "npm_config_argv": "{\"remain\":[],\"cooked\":[\"start\"],\"original\":[\"start\"]}",
+  "npm_config_argv": "{\"remain\":[],\"cooked\":[\"run\",\"start\"],\"original\":[\"run\",\"start\"]}",
   "npm_config_audit": "true",
   "npm_config_audit_level": "low",
   "npm_config_auth_type": "legacy",
@@ -215,7 +215,7 @@ window.env = {
   "SystemRoot": "C:\\WINDOWS",
   "TEMP": "C:\\Users\\piyan\\AppData\\Local\\Temp",
   "TERM_PROGRAM": "vscode",
-  "TERM_PROGRAM_VERSION": "1.67.0",
+  "TERM_PROGRAM_VERSION": "1.67.1",
   "TMP": "C:\\Users\\piyan\\AppData\\Local\\Temp",
   "USERDOMAIN": "LAPTOP-MQ5BP10U",
   "USERDOMAIN_ROAMINGPROFILE": "LAPTOP-MQ5BP10U",
@@ -226,5 +226,6 @@ window.env = {
   "VSCODE_GIT_ASKPASS_NODE": "C:\\Users\\piyan\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
   "VSCODE_GIT_IPC_HANDLE": "\\\\.\\pipe\\vscode-git-6ff28d2f19-sock",
   "windir": "C:\\WINDOWS",
-  "_prog": "node"
+  "_prog": "node",
+  "__COMPAT_LAYER": "DetectorsAppHealth"
 };
