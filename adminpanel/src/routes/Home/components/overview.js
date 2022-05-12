@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function OverViewForum({card}) {
 
     const OverView = ({data_card}) => {
@@ -18,11 +20,22 @@ function OverViewForum({card}) {
             {data.content}
           </div>
           <p className="h-1 w-90 my-2 bg-gray-200"></p>
-          <button className="m-3 p-2 text-sm font-semibold text-white bg-sky-500 hover:bg-sky-400 w-full">Open Page</button>
+          <Link to="listItem">
+            <button className="m-3 p-2 text-sm font-semibold text-white bg-sky-500 hover:bg-sky-400 w-full">
+                Open Page
+            </button>
+          </Link>
         </div>)
     }
     return (
-        <OverView data_card={card}/>
+        <div>
+            <div className='flex'>
+                <span className='text-2xl font-bold'>Overview</span>
+            </div>
+            <div className='m-5 grid grid-cols-3 gap-6'>
+                <OverView data_card={card}/>
+            </div>
+        </div>
     );
   }
   

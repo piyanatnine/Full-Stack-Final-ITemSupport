@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import firebase, { auth } from '../../firebase.config';
-import { Navigate } from "react-router-dom";
+import { auth } from '../../firebase.config';
+import { Route, Routes } from "react-router-dom";
 
 //Components
-import Header from "./components/header";
 import Navbar from "./components/navbar";
 import Sidebar from "./components/sidebar";
 import Footer from "./components/footer";
 import OverViewForum from './components/overview';
+import ListItem from '../ListItem/listItem';
 
 function App() {
 
   //data
   const info = [
-    {title: "testA", content: "ตารางแสดงข้อมูลของอุปกรณ์ทั้งหมดสำหรับจัดการ เพิ่ม ลบ อุปกรณ์จากสถาบัน"},
+    {title: "รายการอุปกรณ์", content: "ตารางแสดงข้อมูลของอุปกรณ์ทั้งหมดสำหรับจัดการ เพิ่ม ลบ อุปกรณ์จากสถาบัน"},
     {title: "testB", content: "ตารางแสดงข้อมูลของอุปกรณ์ทั้งหมดสำหรับจัดการ เพิ่ม ลบ อุปกรณ์จากสถาบัน "},
     {title: "testC", content: "ตารางแสดงข้อมูลของอุปกรณ์ทั้งหมดสำหรับจัดการ เพิ่ม ลบ อุปกรณ์จากสถาบัน"}
   ]
@@ -44,17 +44,14 @@ function App() {
   return (
     <div className="App bg-slate-100 h-screen">
         <div className="flex">
-          <Navbar show={navBar}/>
+          <Sidebar show={navBar}/>
           <div className='w-screen'>      
-            <Header click={toggle} show={navBar} user={user} signOut={signOut}/>
+            <Navbar click={toggle} show={navBar} user={user} signOut={signOut}/>
             <div className='flex-col m-10 '>
-              <div className='flex'>
-                <span className='text-2xl font-bold'>Overview</span>
-              </div>
-              <div className='m-5 grid grid-cols-3 gap-6'>
-                 <OverViewForum card={info}/>
-              </div>
-              
+              <Routes>
+                <Route index element={<OverViewForum card={info}/>}/>
+                <Route path="listItem" element={<ListItem/>}/>
+              </Routes>
             </div>
           </div>
         </div>

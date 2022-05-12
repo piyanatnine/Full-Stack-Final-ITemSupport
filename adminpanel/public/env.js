@@ -2,7 +2,7 @@ window.env = {
   "ALLUSERSPROFILE": "C:\\ProgramData",
   "ANDROID_HOME": "C:\\Users\\piyan\\AppData\\Local\\Android\\Sdk",
   "APPDATA": "C:\\Users\\piyan\\AppData\\Roaming",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_17076_NDXLFELKWWUWBSXK",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_17288_TEGFCNMBBAREVIEK",
   "COLORTERM": "truecolor",
   "CommonProgramFiles": "C:\\Program Files\\Common Files",
   "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
@@ -226,6 +226,5 @@ window.env = {
   "VSCODE_GIT_ASKPASS_NODE": "C:\\Users\\piyan\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
   "VSCODE_GIT_IPC_HANDLE": "\\\\.\\pipe\\vscode-git-6ff28d2f19-sock",
   "windir": "C:\\WINDOWS",
-  "_prog": "node",
-  "__COMPAT_LAYER": "DetectorsAppHealth"
+  "_prog": "node"
 };
