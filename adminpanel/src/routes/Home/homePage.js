@@ -36,7 +36,6 @@ function App() {
   useEffect(()=> {
     const data = JSON.parse(localStorage.getItem('User'));
     if(data){
-      console.log(data)
       setUser(data)
     }
   },[])

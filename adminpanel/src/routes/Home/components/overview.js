@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 function OverViewForum({card}) {
 
     const OverView = ({data_card}) => {
-        console.log('a'+data_card[0].title)
-        return(data_card.map((data) => {
-            return(<OverViewCard data={data}/>)
+        return(data_card.map((data, index) => {
+            return(<OverViewCard data={data} key={data.title+"-"+index}/>)
         }))
     }
 

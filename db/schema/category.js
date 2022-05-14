@@ -1,6 +1,6 @@
 import { Schema } from 'mongoose';
 const CategorySchema = new Schema({
-    idusername: {
+    id: {
         type: Int16Array,
         required: true,
       },

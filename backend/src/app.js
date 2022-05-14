@@ -14,9 +14,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
-// app.listen(3000, () => {
-//   console.log(`Example app listening at http://localhost:3000`)
-// })
+app.listen(3000, () => {
+  console.log(`Example app listening at http://localhost:3000`)
+})
 
 app.get('/getall', (req, res) => {
   res.json({ message: 'hiiii' })
