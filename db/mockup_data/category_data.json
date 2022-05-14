@@ -1,0 +1,14 @@
+[
+    {
+        "id": 0,
+        "name": "cat6_ethernet"  
+    },
+    {
+        "id": 1,
+        "name": "keyboard"  
+    },
+    {
+        "id": 2,
+        "name": "extension plug"
+    }
+]
