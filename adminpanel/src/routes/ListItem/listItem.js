@@ -37,7 +37,11 @@ function ListItem() {
   }
 
   const deleteItem = async () => {
-    console.log( "delete item ", deletePopup.target.name )
+    const deleteData = () => {
+        console.log( "delete item ", deletePopup.target.name )
+    }
+
+    await deleteData();
     setDeletePopup({status: false, target: null})
   }
 
