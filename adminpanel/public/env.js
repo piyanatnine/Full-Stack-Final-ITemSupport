@@ -168,6 +168,8 @@ window.env = {
   "npm_package_browserslist_production_2": "not op_mini all",
   "npm_package_dependencies_axios": "^0.27.2",
   "npm_package_dependencies_firebase": "^9.8.0",
+  "npm_package_dependencies_graphql": "^16.5.0",
+  "npm_package_dependencies_graphql_tag": "^2.12.6",
   "npm_package_dependencies_react": "^18.1.0",
   "npm_package_dependencies_react_dom": "^18.1.0",
   "npm_package_dependencies_react_dotenv": "^0.1.3",

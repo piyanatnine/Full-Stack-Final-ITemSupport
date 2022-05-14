@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"
 
-
 import Table from "./components/table"
 import DeleteModel from "./components/deleteModel";
 
@@ -37,12 +36,27 @@ function ListItem() {
   }
 
   const deleteItem = async () => {
-    const deleteData = () => {
-        console.log( "delete item ", deletePopup.target.name )
+    const deleteData = (data) => {
+      let graphql = `mutation { deleteItem(filter: { itemCode: "${data}" }, sort: ITEMCODE_ASC) {recordId record {itemCode}}}`
+      console.log(graphql)
+      axios({
+        url: 'http://localhost:3000/graphql',
+        method: "post",
+        data: {
+          "query": graphql
+        },
+        headers: {
+          'content-type': 'application/json'
+        }
+      }
+      ).then((result) => {
+        console.log(result)
+        getCategory()
+      })
     }
 
-    await deleteData();
-    setDeletePopup({status: false, target: null})
+    deleteData(deletePopup.target.itemCode);
+    setDeletePopup({status: false, target: null});
   }
 
   useEffect(() => {
