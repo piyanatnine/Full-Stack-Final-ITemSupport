@@ -10,9 +10,6 @@ import './index.css';
 import Protected from './routes/Protected';
 import App from './routes/App';
 import Home from './routes/Home/homePage'
-import ListItem from './routes/ListItem/listItem';
-import OverViewForum from './routes/Home/components/overview';
-
 
 const loggedIn = JSON.parse(localStorage.getItem('User'));
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -30,6 +27,8 @@ root.render(
         }>
           <Route exact path="" index/>
           <Route exact path="listItem"/>
+          <Route exact path="history"/>
+          <Route exact path="reservation"/>
         </Route>
     </Routes>
   </BrowserRouter>
