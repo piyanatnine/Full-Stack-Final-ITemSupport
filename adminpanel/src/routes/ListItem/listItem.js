@@ -3,11 +3,13 @@ import axios from "axios"
 
 import Table from "./components/table"
 import DeleteModel from "./components/deleteModel";
+import EditModel from "./components/editModel";
 
 function ListItem() {
   const [category, setCategory] = useState(null);
   const [item, setItem] = useState(null);
   const [deletePopup, setDeletePopup] = useState({status: false, target: null});
+  const [editPopup, setEditPopup] = useState({status: false, target: null});
 
   const getCategory = () => {
     axios({
@@ -59,6 +61,10 @@ function ListItem() {
     setDeletePopup({status: false, target: null});
   }
 
+  const editItem = async () => {
+    
+  }
+
   useEffect(() => {
     getCategory();
   }, [])
@@ -68,10 +74,11 @@ function ListItem() {
       ListItem
       <div className="table-auto my-5 shadow-md p-5">
         {category && item && 
-          <Table dataList={category} dataItem={item} setDeletePopup={setDeletePopup}/>
+          <Table dataList={category} dataItem={item} setDeletePopup={setDeletePopup} setEditPopup={setEditPopup}/>
         }
       </div>
       {deletePopup.status ? <DeleteModel item={deletePopup.target} setDeletePopup={setDeletePopup} deleteItem={deleteItem}/> : null}
+      {editPopup.status ? <EditModel item={editPopup.target} setEditPopup={setEditPopup} editItem={editItem}/> : null}
     </div>
   );
 }

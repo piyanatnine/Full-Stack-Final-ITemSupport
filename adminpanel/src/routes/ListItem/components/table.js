@@ -1,4 +1,4 @@
-function Table({dataList, dataItem, setDeletePopup}) {
+function Table({dataList, dataItem, setDeletePopup, setEditPopup}) {
     const DataItem = () => {
         return dataItem.map((data) => {
             const Tags = () => {
@@ -14,11 +14,11 @@ function Table({dataList, dataItem, setDeletePopup}) {
                 <td className="p-4">
                     <Tags/>
                 </td>
-                <td className="p-4" >
+                <td className="p-4" onClick={() => setEditPopup({status: true, target: data})} >
                     <span className="text-blue-600 hover:text-blue-800">Edit</span>
                 </td>
                 <td className="p-4" onClick={() => setDeletePopup({status: true, target: data})}>
-                    <span className="text-red-600 hover:text-red-800">Delete</span>
+                    <span className="text-red-600 hover:text-red-800" >Delete</span>
                 </td>
             </tr>)
         })
