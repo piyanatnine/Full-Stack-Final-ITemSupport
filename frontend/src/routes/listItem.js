@@ -16,11 +16,8 @@ export default function ListItem() {
   const [navi, setnavi] = useState('');
   const ITEM_DATA = gql`
     query GetItems {
-      item {
-        itemCode
+      category_items {
         name
-        description
-        inStock
       }
     }
     `;
@@ -44,7 +41,7 @@ export default function ListItem() {
   } 
 
     function handleClick(itemdata) {
-      navigate("/detail", { state: { itemData: itemdata } });
+      navigate(`/detail/${itemdata}`);
       // item[0].itemCode
       }
 
@@ -57,11 +54,11 @@ export default function ListItem() {
         {renderListcol(data.item).map((item, index) => <Row key={index} style={{margin: 10}}>
         <Card className='Card' style={{padding: 10, width: '50%'}}>
           <CardItem item={item[0]}/>
-          <Button onClick={() => handleClick(item[0])} variant="primary" style={{marginTop:"5px"}}>ดูรายละเอียด</Button>
+          <Button onClick={() => handleClick(item[0].itemCode)} variant="primary" style={{marginTop:"5px"}}>ดูรายละเอียด</Button>
         </Card>
           {item.length > 1 ? <Card className='Card' style={{padding: 10, width: '50%'}}>
             <CardItem item={item[1]}/>
-            <Button onClick={() => handleClick(item[1])} variant="primary" style={{marginTop:"5px"}}>ดูรายละเอียด</Button>
+            <Button onClick={() => handleClick(item[1].itemCode)} variant="primary" style={{marginTop:"5px"}}>ดูรายละเอียด</Button>
             </Card> : <div/>}
            </Row>)}
       </Container>
