@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "test": "test",
-    "start": "node -r @babel/register src/app.js"
+    "serve": "node -r @babel/register src/app.js"
   },
   "repository": {
     "type": "git",
