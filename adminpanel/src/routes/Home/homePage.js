@@ -13,9 +13,9 @@ function App() {
 
   //data
   const info = [
-    {title: "รายการอุปกรณ์", content: "ตารางแสดงข้อมูลของอุปกรณ์ทั้งหมดสำหรับจัดการ เพิ่ม ลบ อุปกรณ์จากสถาบัน"},
-    {title: "testB", content: "ตารางแสดงข้อมูลของอุปกรณ์ทั้งหมดสำหรับจัดการ เพิ่ม ลบ อุปกรณ์จากสถาบัน "},
-    {title: "testC", content: "ตารางแสดงข้อมูลของอุปกรณ์ทั้งหมดสำหรับจัดการ เพิ่ม ลบ อุปกรณ์จากสถาบัน"}
+    {title: "รายการอุปกรณ์", content: "ตารางแสดงข้อมูลของอุปกรณ์ทั้งหมดสำหรับจัดการ เพิ่ม ลบ อุปกรณ์จากสถาบัน", path: "listItem"},
+    {title: "testB", content: "ตารางแสดงข้อมูลของอุปกรณ์ทั้งหมดสำหรับจัดการ เพิ่ม ลบ อุปกรณ์จากสถาบัน ", path: "listItem"},
+    {title: "testC", content: "ตารางแสดงข้อมูลของอุปกรณ์ทั้งหมดสำหรับจัดการ เพิ่ม ลบ อุปกรณ์จากสถาบัน", path: "listItem"}
   ]
 
   //props
@@ -43,9 +43,11 @@ function App() {
   return (
     <div className="App bg-slate-100 h-screen">
         <div className="flex">
-          <Sidebar show={navBar}/>
-          <div className='w-screen'>      
-            <Navbar click={toggle} show={navBar} user={user} signOut={signOut}/>
+          <Sidebar show={navBar} menu={info}/>
+          <div className={`absolute right-0 ${navBar ? "w-[82vw]":"w-full"} duration-500`}>
+            <div className='h-20'>  
+              <Navbar click={toggle} show={navBar} user={user} signOut={signOut}/>
+            </div>
             <div className='flex-col m-10 '>
               <Routes>
                 <Route index element={<OverViewForum card={info}/>}/>

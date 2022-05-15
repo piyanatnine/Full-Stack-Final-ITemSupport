@@ -36,7 +36,7 @@ function Table({dataList, dataItem, setDeletePopup, setEditPopup}) {
         <table className="w-full h-24 min-h-full overflow- text-md text-left bg-gray-100">
             <thead className="text-lg text-gray-700 bg-gray-50">
             <tr>
-                <th className="p-4">ID</th>
+                <th className="p-4">#</th>
                 <th className="p-4">Name</th>
                 <th className="p-4">Description</th>
                 <th className="p-4">tags</th>

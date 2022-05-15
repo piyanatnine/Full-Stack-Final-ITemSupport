@@ -25,8 +25,8 @@ function Header({click, show, user, signOut}) {
   }
 
   return (
-    <nav className="relative w-full h-20 bg-slate-100 
-      text-gray-500 shadow-lg flex justify-between" 
+    <nav className="relative h-20 bg-slate-100 
+      text-gray-500 shadow-lg flex justify-between duration-500"
     > 
       <div className="container-fluid w-full flex flex-wrap items-center justify-between pl-5">
         <div onClick={click}>

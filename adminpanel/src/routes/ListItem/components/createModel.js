@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-function EditModel({item, setEditPopup, editItem, category}) {
-  const [name, setName] = useState(item.name)
-  const [description, setDescription] = useState(item.description)
-  const [img, setImg] = useState(item.imageUrl)
-  const [tag, setTag] = useState(item.tags[0])
+function CreateModel({setCreatePopup, createItem, category}) {
+  const [name, setName] = useState("")
+  const [description, setDescription] = useState("")
+  const [img, setImg] = useState("")
+  const [tag, setTag] = useState("cat6_ethernet")
   
   const Category = () => {
     return category.map((data)=>{
@@ -24,7 +24,7 @@ function EditModel({item, setEditPopup, editItem, category}) {
               type="button"
               className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
               data-modal-toggle="popup-modal"
-              onClick={() => setEditPopup({status: false, target: null})}
+              onClick={() => setCreatePopup({status: false})}
             >
               <svg
                 className="w-5 h-5"
@@ -46,14 +46,14 @@ function EditModel({item, setEditPopup, editItem, category}) {
                   Name
                 </label>
                 <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                type="text" placeholder="name" onChange={(event) => setName(event.target.value)} defaultValue={name}/>
+                type="text" placeholder="name" onChange={(event) => setName(event.target.value)} />
               </div>
               <div className="mb-6">
                 <label className="block text-gray-700 text-sm font-bold mb-2" for="description">
                   Description
                 </label>
                 <textarea id="message" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                placeholder="discription..." onChange={(event) => setDescription(event.target.value)} defaultValue={description}></textarea>
+                placeholder="discription..." onChange={(event) => setDescription(event.target.value)}></textarea>
               </div>
               <div className="mb-6">
                 <label className="block text-gray-700 text-sm font-bold mb-2" for="description">
@@ -61,7 +61,7 @@ function EditModel({item, setEditPopup, editItem, category}) {
                 </label>
                 <div className="flex">
                 <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
-                type="text" placeholder="URL" onChange={(event) => setImg(event.target.value)} defaultValue={img}/>
+                type="text" placeholder="URL" onChange={(event) => setImg(event.target.value)}/>
                 <span className="pt-2 pl-2 text-sky-600 mb-3 font-bold" onClick={() => window.open(img, '_blank', 'noopener, noreferrer')}>
                   show
                 </span>
@@ -85,7 +85,7 @@ function EditModel({item, setEditPopup, editItem, category}) {
                 focus:ring-4 focus:outline-none focus:ring-red-300
                 disabled:opacity-25
                 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
-                onClick={() => editItem(name, description, tag, img)}
+                onClick={() => createItem(name, description, tag, img)}
               >
                 Yes, I'm sure
               </button>
@@ -93,7 +93,7 @@ function EditModel({item, setEditPopup, editItem, category}) {
                 data-modal-toggle="popup-modal"
                 type="button"
                 className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
-                onClick={() => setEditPopup({status: false, target: null})}
+                onClick={() => setCreatePopup({status: false})}
               >
                 No, cancel
               </button>            
@@ -105,4 +105,4 @@ function EditModel({item, setEditPopup, editItem, category}) {
   );
 }
 
-export default EditModel;
+export default CreateModel;

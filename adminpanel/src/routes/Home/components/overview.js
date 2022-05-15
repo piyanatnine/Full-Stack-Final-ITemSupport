@@ -19,7 +19,7 @@ function OverViewForum({card}) {
             {data.content}
           </div>
           <p className="h-1 w-90 my-2 bg-gray-200"></p>
-          <Link to="listItem">
+          <Link to={data.path}>
             <button className="m-3 p-2 text-sm font-semibold text-white bg-sky-500 hover:bg-sky-400 w-full">
                 Open Page
             </button>
