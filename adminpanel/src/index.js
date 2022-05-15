@@ -10,7 +10,7 @@ import './index.css';
 import Protected from './routes/Protected';
 import App from './routes/App';
 import Home from './routes/Home/homePage'
-import Footer from './routes/Home/components/footer';
+import ListItem from './routes/ListItem/listItem';
 import OverViewForum from './routes/Home/components/overview';
 
 
@@ -28,8 +28,8 @@ root.render(
             <Home />
           </Protected>
         }>
-          <Route index element={<OverViewForum/>}/>
-          <Route path="listItem" element={<Footer/>}/>
+          <Route exact path="" index/>
+          <Route exact path="listItem"/>
         </Route>
     </Routes>
   </BrowserRouter>

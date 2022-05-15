@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { auth } from '../../firebase.config';
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 
 //Components
 import Navbar from "./components/navbar";
@@ -17,6 +17,7 @@ function App() {
     {title: "testB", content: "ตารางแสดงข้อมูลของอุปกรณ์ทั้งหมดสำหรับจัดการ เพิ่ม ลบ อุปกรณ์จากสถาบัน ", path: "listItem"},
     {title: "testC", content: "ตารางแสดงข้อมูลของอุปกรณ์ทั้งหมดสำหรับจัดการ เพิ่ม ลบ อุปกรณ์จากสถาบัน", path: "listItem"}
   ]
+  const { id } = useParams();
 
   //props
   const [navBar, setNavBar] = useState(true)
@@ -43,15 +44,15 @@ function App() {
   return (
     <div className="App bg-slate-100 h-screen">
         <div className="flex">
-          <Sidebar show={navBar} menu={info}/>
+          <Sidebar show={navBar} menu={info} selectPath={id}/>
           <div className={`absolute right-0 ${navBar ? "w-[82vw]":"w-full"} duration-500`}>
             <div className='h-20'>  
               <Navbar click={toggle} show={navBar} user={user} signOut={signOut}/>
             </div>
             <div className='flex-col m-10 '>
               <Routes>
-                <Route index element={<OverViewForum card={info}/>}/>
-                <Route path="listItem" element={<ListItem/>}/>
+                <Route exact path="" index element={<OverViewForum card={info}/>}/>
+                <Route exact path="listItem" element={<ListItem/>}/>
               </Routes>
             </div>
           </div>
