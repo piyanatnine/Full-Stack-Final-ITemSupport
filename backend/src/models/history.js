@@ -12,15 +12,12 @@ const historyschema = new Schema({
         required: true,
         lowercase: true,
     },
-    startTime: {
-        type: Date,
-        required: true
-    },
-    endTime: {
-        type: Date,
-        default: null
+    status: {
+        type: String,
+        required: true,
+        default: "borrowing"
     }
-})
+}, {timestamps: true})
 
 export const HistoryModel = model('historys', historyschema)
 export const HistoryTC = composeWithMongoose(HistoryModel)
