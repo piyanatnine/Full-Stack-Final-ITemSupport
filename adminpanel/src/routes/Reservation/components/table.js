@@ -5,13 +5,14 @@ function Table({dataReservation, show}) {
     const DataItem = () => {
 
         const reverse = dataReservation.reverse()
-        
-        return reverse.map((data) => {
+
+        return (reverse.map((data) => {
 
             const Status = () => {
                 return(<Labels status={data.status} key={data.status+"-"+data._id}/>)
             }
-            if (data.status === show || show === "")
+
+            if (data.status === show || show === ""){
             return (
             <tr className="bg-white border-b" key={data._id}>
                 <td className="p-4"><Status/></td>
@@ -36,7 +37,9 @@ function Table({dataReservation, show}) {
                     </td>
                 )}
             </tr>)
-        })
+            }
+            return<></>
+        }))
     }
     
     const Labels = ({status}) => {

@@ -51,8 +51,8 @@ function Reservation() {
     return (<>
       {reservation && 
       <div className="Reservation">
-        <div className="grid grid-cols-10">
-          <div className='col-start-1 font-bold text-2xl'> List Item</div>
+        <div className="grid">
+          <div className='col-start-1 font-bold text-2xl'> List Reservation</div>
         </div>
         <div className="grid grid-cols-4 gap-12 mt-5">
           <div className="grid h-48 w-full bg-indigo-500 hover:bg-indigo-600 drop-shadow-lg place-content-center"
