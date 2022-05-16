@@ -1,4 +1,4 @@
-import { schemaComposer } from 'graphql-compose'
+import { SchemaComposer, schemaComposer } from 'graphql-compose'
 
 // eslint-disable-next-line import/order
 // import './relation'

@@ -5,7 +5,7 @@ import { ApolloServer } from 'apollo-server-express'
 import cors from 'cors'
 import express from 'express'
 
-import '../mongoose-connect'
+import '../mongooes-connect'
 // eslint-disable-next-line import/order
 import schema from './graphql'
 
