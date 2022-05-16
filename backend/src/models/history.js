@@ -16,7 +16,15 @@ const historyschema = new Schema({
         type: String,
         required: true,
         default: "borrowing"
-    }
+    },
+    updatedAt: {
+        type: String,
+        required: true
+    },
+    createdAt: {
+        type: String,
+        required: true
+    },
 }, {timestamps: true})
 
 export const HistoryModel = model('historys', historyschema)
