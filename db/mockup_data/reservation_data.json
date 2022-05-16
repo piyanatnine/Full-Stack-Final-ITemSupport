@@ -1,6 +1,6 @@
 [
     {
-        "username": "it62070088",
+        "username": "62070088@it.kmitl.ac.th",
         "itemCode": "usbk01",
         "status": "completed",
         "reservedTime": "2022-04-01T07:20:54.240+00:00",
@@ -9,7 +9,7 @@
         "_ver": "1"
     },
     {
-        "username": "it62070085",
+        "username": "62070085@it.kmitl.ac.th",
         "itemCode": "cat6e01",
         "status": "completed",
         "reservedTime": "2022-04-01T07:20:54.240+00:00",
@@ -18,7 +18,7 @@
         "_ver": "1"
     },
     {
-        "username": "it62070119",
+        "username": "62070119@it.kmitl.ac.th",
         "itemCode": "explug01",
         "status": "completed",
         "reservedTime": "2022-04-01T07:20:54.240+00:00",
@@ -27,7 +27,7 @@
         "_ver": "1"
     },
     {
-        "username": "it62070228",
+        "username": "62070228@it.kmitl.ac.th",
         "itemCode": "usbk02",
         "status": "waiting",
         "reservedTime": "2022-04-10T07:20:54.240+00:00",
@@ -36,7 +36,7 @@
         "_ver": "0"
     },
     {
-        "username": "it6207088",
+        "username": "6207088@it.kmitl.ac.th",
         "itemCode": "usbk02",
         "status": "canceled",
         "reservedTime": "2022-03-31T07:20:54.240+00:00",
