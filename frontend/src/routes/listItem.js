@@ -15,9 +15,10 @@ export default function ListItem() {
   // const [items, setItem] = useState([])
   const [navi, setnavi] = useState('');
   const ITEM_DATA = gql`
-    query GetItems {
-      category_items {
+    query {
+      category {
         name
+        id
       }
     }
     `;
@@ -26,7 +27,7 @@ export default function ListItem() {
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
-  console.log(data.item)
+  console.log(data.category)
 
   function renderListcol(list){
     let itembyrow = [];
@@ -51,14 +52,14 @@ export default function ListItem() {
       
       </header>
       <Container>
-        {renderListcol(data.item).map((item, index) => <Row key={index} style={{margin: 10}}>
+        {renderListcol(data.category).map((item, index) => <Row key={index} style={{margin: 10}}>
         <Card className='Card' style={{padding: 10, width: '50%'}}>
           <CardItem item={item[0]}/>
-          <Button onClick={() => handleClick(item[0].itemCode)} variant="primary" style={{marginTop:"5px"}}>ดูรายละเอียด</Button>
+          <Button onClick={() => handleClick(item[0].name)} variant="primary" style={{marginTop:"5px"}}>ดูรายละเอียด</Button>
         </Card>
           {item.length > 1 ? <Card className='Card' style={{padding: 10, width: '50%'}}>
             <CardItem item={item[1]}/>
-            <Button onClick={() => handleClick(item[1].itemCode)} variant="primary" style={{marginTop:"5px"}}>ดูรายละเอียด</Button>
+            <Button onClick={() => handleClick(item[1].name)} variant="primary" style={{marginTop:"5px"}}>ดูรายละเอียด</Button>
             </Card> : <div/>}
            </Row>)}
       </Container>
