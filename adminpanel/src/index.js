@@ -10,9 +10,6 @@ import './index.css';
 import Protected from './routes/Protected';
 import App from './routes/App';
 import Home from './routes/Home/homePage'
-import Footer from './routes/Home/components/footer';
-import OverViewForum from './routes/Home/components/overview';
-
 
 const loggedIn = JSON.parse(localStorage.getItem('User'));
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -28,8 +25,10 @@ root.render(
             <Home />
           </Protected>
         }>
-          <Route index element={<OverViewForum/>}/>
-          <Route path="listItem" element={<Footer/>}/>
+          <Route exact path="" index/>
+          <Route exact path="listItem"/>
+          <Route exact path="history"/>
+          <Route exact path="reservation"/>
         </Route>
     </Routes>
   </BrowserRouter>
