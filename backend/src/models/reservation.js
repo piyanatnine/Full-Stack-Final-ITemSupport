@@ -13,22 +13,14 @@ const ReservationSchema = new Schema({
         lowercase: true,
     },
     reservedTime: {
-        type: String,
+        type: Date,
         required: true
     },
     status: {
         type: String,
         required: true,
         default: "waiting"
-    },
-    updatedAt: {
-        type: String,
-        required: true
-    },
-    createdAt: {
-        type: String,
-        required: true
-    },
+    }
 }, {timestamps: true})
 
 export const Reservationmodel = model("reservations", ReservationSchema)
