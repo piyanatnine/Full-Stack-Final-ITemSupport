@@ -3,6 +3,8 @@ name: Backend Docker Image CI
 on:
   push:
     branches: [dev]
+    paths:
+      - backend/**
 
 defaults:
   run:
