@@ -1,12 +1,14 @@
 import { useEffect } from "react"
 
-function Table({dataReservation, show}) {
+function Table({dataReservation, show, updatePopup}) {
+
+    const dataReverse = structuredClone(dataReservation);
+    dataReverse.reverse()
+    
 
     const DataItem = () => {
 
-        const reverse = dataReservation.reverse()
-
-        return (reverse.map((data) => {
+        return (dataReverse.map((data) => {
 
             const Status = () => {
                 return(<Labels status={data.status} key={data.status+"-"+data._id}/>)
@@ -21,10 +23,10 @@ function Table({dataReservation, show}) {
                 <td className="p-4">{(new Date(data.createdAt)).toLocaleString().split(",")[0]}</td>
                 <td className="p-4">{(new Date(data.reservedTime)).toLocaleString()}</td>
                 { data.status === "waiting" && (<>
-                <td className="p-4" >
+                <td className="p-4" onClick={() => updatePopup({status: true, target: {itemCode: data.itemCode, username: data.username, approved: false}})}>
                     <span className="text-red-600 hover:text-red-800">Cancle</span>
                 </td>
-                <td className="p-4" >
+                <td className="p-4" onClick={() => updatePopup({status: true, target: {itemCode: data.itemCode, username: data.username, approved: true}})}>
                     <span className="text-lime-600 hover:text-lime-800" >Approve</span>
                 </td>
                 </>)}

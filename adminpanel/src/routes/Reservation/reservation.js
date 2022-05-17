@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Table from "./components/table";
+import UpdateModal from "./components/updatePopup";
 
 function Reservation() {
 
   const [reservation, setReservation] = useState(null);
   const [item, setItem] = useState(null);
   const [show, setShow] = useState("");
+  const [updatePopup, setUpdatePopup] = useState({status: false, target: null});
 
   const getReservation = () => {
     axios({
@@ -38,6 +40,57 @@ function Reservation() {
       setReservation(result.data.data.Reservation);
       setItem(result.data.data.item);
     })
+  }
+
+  const updateReservation = (id, username, completed) =>{
+    const updateData = () => {
+      let createHistory = `createHistory(
+        record:{
+          username: "${username}"
+          itemCode: "${id}"
+          status: "borrowing"
+        }) {
+          recordId
+          record {
+            username
+            itemCode
+            status
+          }
+        }`
+
+      let graphql = `mutation {
+        updateReservation(filter: {itemCode: "${id}", username: "${username}", status: "waiting"}
+        record:{
+          status: "${completed ? "completed" : "canceled"}"
+        }) {
+          recordId
+          record {
+            status
+          }
+        },${
+          completed ? createHistory: ""
+        }
+      }`
+
+      console.log(graphql)
+      axios({
+        url: 'http://localhost:3000/graphql',
+        method: "post",
+        data: {
+          "query": graphql
+        },
+        headers: {
+          'content-type': 'application/json'
+        }
+      }
+      ).then((result) => {
+        console.log(result)
+        getReservation()
+        setUpdatePopup({status: false, target: null})
+      })
+    }
+
+    updateData();
   }
 
   const count = (status) => {
@@ -93,9 +146,12 @@ function Reservation() {
           </div>
         </div>
         <div className="table-auto my-5 shadow-md p-5">
-          <Table dataReservation={reservation} show={show}/>
+          <Table dataReservation={reservation} show={show} updatePopup={setUpdatePopup}/>
         </div>
-      </div>}</>
+      </div>}
+      {updatePopup.status ? <UpdateModal  target={updatePopup.target} setUpdatePopup={setUpdatePopup} update={updateReservation}/> : null}
+      </>
+      
     );
   }
   

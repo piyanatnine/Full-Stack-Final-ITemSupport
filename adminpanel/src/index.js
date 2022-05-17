@@ -13,6 +13,7 @@ import Home from './routes/Home/homePage'
 
 const loggedIn = JSON.parse(localStorage.getItem('User'));
 const root = ReactDOM.createRoot(document.getElementById('root'));
+document.title = "ItemSupport @KMITL"
 root.render(
   <BrowserRouter>
     <Routes>
