@@ -1,14 +1,17 @@
 [
     {
         "id": 0,
-        "name": "cat6_ethernet"  
+        "name": "cat6_ethernet",
+        "prefix": "cat6e"
     },
     {
         "id": 1,
-        "name": "keyboard"  
+        "name": "keyboard",
+        "prefix": "usbk"
     },
     {
         "id": 2,
-        "name": "extension plug"
+        "name": "extension plug",
+        "prefix": "explug"
     }
 ]
