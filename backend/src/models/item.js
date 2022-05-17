@@ -20,11 +20,11 @@ const ItemSchema = new Schema({
     },
     imageUrl: {
         type: String,
-        default: null
+        required: true
     },
     tags: {
         type: Array,
-        default: null
+        required: true
     }
 })
 
