@@ -3,6 +3,8 @@ name: Frontend Docker Image CI
 on:
   push:
     branches: [dev]
+    paths:
+      - frontend/**
 
 defaults:
   run:
