@@ -3,6 +3,8 @@ name: Admin Panel Docker Image CI
 on:
   push:
     branches: [dev]
+    paths:
+      - adminpanel/**
 
 defaults:
   run:
