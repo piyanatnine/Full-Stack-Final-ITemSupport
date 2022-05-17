@@ -1,10 +1,16 @@
 import { useEffect } from "react"
 
-function Table({dataReservation, show}) {
+function Table({dataHistory, show}) {
+
+    const toReturn = (dEnd, dStart) => {
+        var t2 = dEnd.getTime();
+        var t1 = dStart.getTime();
+        return Math.floor((t2-t1)/(24*3600*1000)) +" day";
+    }
 
     const DataItem = () => {
 
-        const reverse = dataReservation.reverse()
+        const reverse = dataHistory
 
         return (reverse.map((data) => {
 
@@ -19,23 +25,19 @@ function Table({dataReservation, show}) {
                 <td className="p-4">{data.itemCode}</td>
                 <td className="p-4">{data.username}</td>
                 <td className="p-4">{(new Date(data.createdAt)).toLocaleString().split(",")[0]}</td>
-                <td className="p-4">{(new Date(data.reservedTime)).toLocaleString()}</td>
-                { data.status === "waiting" && (<>
                 <td className="p-4" >
-                    <span className="text-red-600 hover:text-red-800">Cancle</span>
+                    {data.status === "returned" ? (new Date(data.updatedAt)).toLocaleString().split(",")[0] : "-"}
                 </td>
-                <td className="p-4" >
-                    <span className="text-lime-600 hover:text-lime-800" >Approve</span>
+                <td className="p-4">
+                {data.status === "returned" ? toReturn(new Date(data.updatedAt), new Date(data.createdAt)) : toReturn(new Date(), new Date(data.createdAt))}
                 </td>
-                </>)}
-                { data.status !== "waiting" && (
-                    <td colSpan={2} className="p-4">
-                        <span className={`text-xs font-semibold inline-block py-1 px-2 rounded-full 
-                        ${data.status === "completed" ? "text-lime-600 bg-lime-200": "text-red-600 bg-red-200"}`}>
-                            This Order has been {data.status}
-                        </span>  
-                    </td>
-                )}
+                <td>
+                    {data.status === "borrowing" ? 
+                    <span className="text-lime-600 hover:text-lime-800">Update</span>
+                    :<></>}
+                </td>
+                
+                
             </tr>)
             }
             return<></>
@@ -45,9 +47,8 @@ function Table({dataReservation, show}) {
     const Labels = ({status}) => {
         return( 
             <span className={`text-xs font-semibold inline-block py-1 px-2 rounded uppercase
-            ${status === "completed" ? "text-lime-600 bg-lime-200": ""}
-            ${status === "canceled" ? "text-red-600 bg-red-200": ""}
-            ${status === "waiting" ? "text-amber-600 bg-amber-200": ""}`}>
+            ${status === "borrowing" ? "text-amber-600 bg-amber-200": ""}
+            ${status === "returned" ? "text-lime-600 bg-lime-200": ""}`}>
                 {status}
             </span> 
         )
@@ -61,11 +62,11 @@ function Table({dataReservation, show}) {
             <thead className="text-lg text-gray-700 bg-gray-50">
             <tr>
                 <th className="p-4">Status</th>
-                <th className="p-4">Item Request</th>
+                <th className="p-4">Item #</th>
                 <th className="p-4">User</th>
-                <th className="p-4">Request Time</th>
-                <th className="p-4">Reservation Time</th>
-                <th></th>
+                <th className="p-4">Borrow Date</th>
+                <th className="p-4">Returned Date</th>
+                <th className="p-4">Total Time</th>
                 <th></th>
             </tr>
             </thead>
