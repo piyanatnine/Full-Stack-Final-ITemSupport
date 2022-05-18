@@ -17,7 +17,7 @@ function ListItem() {
 
   const getCategory = () => {
     axios({
-      url: 'http://localhost:3000/graphql',
+      url: 'http://localhost:3001/graphql',
       method: "post",
       data: {
         query: `
@@ -47,7 +47,7 @@ function ListItem() {
       let graphql = `mutation { deleteItem(filter: { itemCode: "${data}" }, sort: ITEMCODE_ASC) {recordId record {itemCode}}}`
       console.log(graphql)
       axios({
-        url: 'http://localhost:3000/graphql',
+        url: 'http://localhost:3001/graphql',
         method: "post",
         data: {
           "query": graphql
@@ -87,14 +87,18 @@ function ListItem() {
       <div className='grid grid-cols-10'>
           <div className='col-start-1 font-bold text-2xl'> List Item</div>
           <div className='col-end-11 col-span-2 font-bold text-md justify-items-end'> 
-            <button class="bg-white border border-sky-500 hover:text-sky-600 text-sky-500 py-2 px-4 rounded"
-            onClick={() => setCategoryPopup({status:true})}>
+            <button class="disabled:opacity-25 bg-white border border-sky-500 hover:text-sky-600 text-sky-500 py-2 px-4 rounded"
+            onClick={() => setCategoryPopup({status:true})}
+            disabled={category == null}
+            >
                 Add New Category
             </button>
           </div>
           <div className='col-end-12 font-bold text-md justify-items-end'> 
-            <button class="bg-white border border-sky-500 hover:text-sky-600 text-sky-500 py-2 px-4 rounded"
-            onClick={() => setCreatePopup({status:true})}>
+            <button class="disabled:opacity-25 bg-white border border-sky-500 hover:text-sky-600 text-sky-500 py-2 px-4 rounded"
+            onClick={() => setCreatePopup({status:true})}
+            disabled={item == null}
+            >
                 Add New Item
             </button>
           </div>

@@ -6,7 +6,7 @@ function Navbar({show, menu, selectPath}) {
     return menu.map((menu) => {
       return <li className="text-xl text-gray-300 hover:text-gray-50">
               <Link to={menu.path}>
-                • {menu.title}
+                 {menu.title}
               </Link>
             </li>
     })

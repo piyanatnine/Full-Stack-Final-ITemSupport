@@ -1,0 +1,28 @@
+name: Backend Docker Image CI
+
+on:
+  push:
+    branches: [dev]
+    paths:
+      - backend/**
+
+defaults:
+  run:
+    working-directory: backend
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create mongoose-connect.js
+        run: |
+          touch mongoose-connect.js
+          mv mongoose-connect-template mongoose-connect.js
+          cat mongoose-connect.js
+      - name: Build the Docker image
+        run: |
+          echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin docker.io
+          docker build . --file Dockerfile --tag docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY_DATABASE }}
+          docker push docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPOSITORY_DATABASE }}
