@@ -14,7 +14,7 @@ schemaComposer.Mutation.addFields({
         resolve : async (_, {name, prefix}) => {
             let id = await categoryModel.findOne({name : name})
             if (!id) {
-                let all_id = await categoryModel.countDocuments()
+                let all_id = await categoryModel.countDocuments({})
                 const create = await categoryModel.create({name : name,id : all_id, prefix : prefix})
                 return create
             }   
