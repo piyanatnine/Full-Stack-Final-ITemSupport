@@ -13,3 +13,5 @@ const options = {
 
 export default mongoose.connect(uri, options)
 ```
+
+ผมแก้ readme บังคับให้มัน push เฉยๆ
