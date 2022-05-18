@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
-app.listen(3001, () => {
+app.listen(3000, () => {
   console.log(`Example app listening at http://localhost:3001/graphql`)
 })
 
