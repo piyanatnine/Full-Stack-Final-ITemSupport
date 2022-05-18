@@ -10,6 +10,11 @@ const CategorySchema = new Schema({
         type: String,
         required: true,
         lowercase: true,
+    },
+    prefix: {
+        type: String,
+        required: true,
+        lowercase: true,
     }
 })
 
