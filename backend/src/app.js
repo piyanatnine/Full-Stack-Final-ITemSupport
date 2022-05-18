@@ -14,14 +14,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
-app.listen(3000, () => {
-  console.log(`Example app listening at http://localhost:3001/graphql`)
-})
-
-app.get('/getall', (req, res) => {
-  res.json({ message: 'hiiii' })
-})
-
 const startApolloServer = async () => {
   const httpServer = createServer(app)
   const apolloServer = new ApolloServer({
@@ -35,5 +27,6 @@ const startApolloServer = async () => {
   await apolloServer.start()
   apolloServer.applyMiddleware({ app, path: '/graphql' })
   httpServer.listen({ port: 3001 })
+  console.log(`App listening at http://localhost:3001/graphql`)
 }
 startApolloServer()
