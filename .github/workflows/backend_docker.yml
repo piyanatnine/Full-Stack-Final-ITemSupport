@@ -15,12 +15,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
       - name: Create mongoose-connect.js
         run: |
           touch mongoose-connect.js
           mv mongoose-connect-template mongoose-connect.js
           cat mongoose-connect.js
-      - uses: actions/checkout@v2
       - name: Build the Docker image
         run: |
           echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin docker.io
