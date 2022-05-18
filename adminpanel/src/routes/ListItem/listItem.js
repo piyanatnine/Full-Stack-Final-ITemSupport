@@ -17,7 +17,7 @@ function ListItem() {
 
   const getCategory = () => {
     axios({
-      url: 'http://localhost:3000/graphql',
+      url: 'http://localhost:3001/graphql',
       method: "post",
       data: {
         query: `
@@ -47,7 +47,7 @@ function ListItem() {
       let graphql = `mutation { deleteItem(filter: { itemCode: "${data}" }, sort: ITEMCODE_ASC) {recordId record {itemCode}}}`
       console.log(graphql)
       axios({
-        url: 'http://localhost:3000/graphql',
+        url: 'http://localhost:3001/graphql',
         method: "post",
         data: {
           "query": graphql
