@@ -1,4 +1,5 @@
 import { schemaComposer } from "graphql-compose";
+import mongooseConnect from "../../../../mongoose-connect";
 import { Itemmodel, ItemTC } from "../../../models/item";
 
 export const item = ItemTC.getResolver("findMany")

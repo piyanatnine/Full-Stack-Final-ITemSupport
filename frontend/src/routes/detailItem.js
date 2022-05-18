@@ -11,9 +11,10 @@ import { useState } from 'react';
 export default function DetailItem(){
 
   const [modalIsOpen, setIsOpen] = useState()
+  const [avanum, setavanum] = useState()
   let { id } = useParams();
   const ITEM_DATA = gql`
-    query GetItems {
+    query {
       item(filter:{
         tags : ["${id}"]
       }) {
@@ -23,19 +24,47 @@ export default function DetailItem(){
         description
         imageUrl
       }
+      Reservation (filter:{
+        status: "waiting"
+      }){
+        _id
+    		username
+    		itemCode
+        reservedTime
+      }
+  		history (filter:{
+        status: "borrowing"
+      }){
+        _id
+        username
+        itemCode
+        createdAt
+      }
     }
+
+    
     `;
 
   const { loading, error, data } = useQuery(ITEM_DATA);
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
-  console.log(data.item)
+  console.log(data)
+  var numall = data.item.length, numava = numall;
+  var notavaliable = [...data.Reservation, ...data.history]
   const ListItem = () => {
     return data.item.map((item) => {
+      var avaliable = true;
+      for (let j = 0; j < notavaliable.length; j++) {
+            if(item.itemCode === notavaliable[j].itemCode){
+              avaliable = false
+              numava-=1;
+              setavanum(numava)
+              break;
+            }
+          }
       return (
-        <Item data={item} func={openModal} key={item._id}/>
-        
+        <Item data={item} isavaliable={avaliable} func={openModal} key={item._id}/>
       )
     })
   }
@@ -60,12 +89,12 @@ export default function DetailItem(){
               <div className='col-2'>
                 <img src="http://via.placeholder.com/150" className="img-fluid" alt="..." />
               </div>
-              <div className='col-8'>
-                <h1>{id}</h1>
+              <div className='col-8' style={{paddingTop:'10px'}}>
+                <h1>{id.toUpperCase()}</h1>
                 
               </div>
               <div className='col-2'>
-                <h1>6/6</h1>
+                <h1>{avanum}/{numall}</h1>
               </div>
             </div>
             <div className='mt-5'>
@@ -76,7 +105,6 @@ export default function DetailItem(){
             </div>
           </div>
         </div>
-        <button onClick={openModal}>Open Modal</button>
       </div>
       <Modal
         isOpen={modalIsOpen}

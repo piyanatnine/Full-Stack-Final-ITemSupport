@@ -10,9 +10,15 @@ export default function Item(props){
                 <h4>{itemData.name}</h4>
                 <div>{itemData.description}</div>
           </div>
-          <div className='col-1 bg-danger text-center' onClick={props.func} style={{paddingTop: "35px",textAlign: "center"}}>
+          {props.isavaliable ? 
+          <button className='col-1 bg-primary text-center' onClick={props.func} style={{color:"white", paddingTop: "15px"}}>
             <p>จอง</p>
-          </div>
+          </button>:
+          <button className='col-1 bg-danger text-center' style={{color:"white",paddingTop: "15px"}} disabled={true}>
+            <p>ยังไม่พร้อม</p>
+          </button>
+        }
+          
         </div>
       </div>
     )
