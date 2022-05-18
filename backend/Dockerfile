@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 3001
 
-CMD ["node", "-r", "@babel/register", "src/app.js"]
+CMD ["npm", "run", "serve"]
