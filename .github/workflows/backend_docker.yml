@@ -17,7 +17,9 @@ jobs:
     steps:
       - name: Create mongoose-connect.js
         run: |
+          touch mongoose-connect.js
           mv mongoose-connect-template mongoose-connect.js
+          cat mongoose-connect.js
       - uses: actions/checkout@v2
       - name: Build the Docker image
         run: |
