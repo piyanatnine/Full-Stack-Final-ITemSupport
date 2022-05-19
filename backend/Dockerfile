@@ -6,6 +6,8 @@ COPY package*.json ./
 
 RUN npm install
 
+RUN npm install --save graphql
+
 COPY mongoose-connect.js ./
 
 COPY . ./
