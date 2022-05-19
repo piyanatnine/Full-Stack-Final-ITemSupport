@@ -9,10 +9,11 @@ schemaComposer.Mutation.addFields({
     updateHistory:{
         type : HistoryTC,
         args : {
+            _id: "objectId!",
             ItemCode : "String!",
         },
         resolve : async (_, {ItemCode}) => {
-            const HistoryData = await HistoryModel.findOne({itemCode: ItemCode})
+            const HistoryData = await HistoryModel.findOne({itemCode: ItemCode, _id: _id})
             if (HistoryData){
                 const StatusItem = HistoryData.get("status")
                 if (StatusItem == "borrowing"){
