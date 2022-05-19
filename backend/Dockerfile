@@ -4,9 +4,9 @@ WORKDIR /app
 
 COPY package.json .
 
-COPY mongoose-connect.js .
+RUN npm install package.json
 
-RUN npm install
+COPY mongoose-connect.js .
 
 COPY . .
 
