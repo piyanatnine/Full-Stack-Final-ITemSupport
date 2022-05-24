@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter,
   Routes,
   Route,
+  Navigate
  } from 'react-router-dom';
 import './index.css';
 
@@ -20,7 +21,7 @@ import {
 } from "@apollo/client";
 
 const rootElement = document.getElementById("root");
-
+const loggedIn = JSON.parse(localStorage.getItem('User'));
 const client = new ApolloClient({
   uri: 'http://localhost:3000/graphql',
   cache: new InMemoryCache()
@@ -30,7 +31,9 @@ ReactDOM.render(
   <ApolloProvider client={client}>
       <BrowserRouter>
       <Routes>
-          <Route path="/" element={<App />} />
+          <Route path="/" element={ 
+            loggedIn == null ?  <Navigate to="/login" /> : <Navigate to="/list" />} 
+          />
           <Route path="detail/:id" element={<DetailItem />} />
           <Route path="list" element={<ListItem />} />
           <Route path="login" element={<Login />} />
