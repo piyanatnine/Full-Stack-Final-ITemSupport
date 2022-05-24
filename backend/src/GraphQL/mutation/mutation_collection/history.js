@@ -5,11 +5,11 @@ export const createHistoryBN = HistoryTC.getResolver("createOne")
 export const deleteHistoryBN = HistoryTC.getResolver("removeOne")
 export const updateHistoryBN = HistoryTC.getResolver("updateOne")
 
-schemaComposer.Mutation.addFields(
+schemaComposer.Mutation.addFields({
     updateHistory:{
         type : HistoryTC,
         args : {
-            _id: "objectId!",
+            _id: "MongoID!",
             ItemCode : "String!",
         },
         resolve : async (_, {ItemCode}) => {
