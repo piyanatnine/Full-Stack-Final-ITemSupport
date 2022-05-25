@@ -12,7 +12,7 @@ schemaComposer.Mutation.addFields({
             _id: "MongoID!",
             ItemCode : "String!",
         },
-        resolve : async (_, {ItemCode}) => {
+        resolve : async (_, {ItemCode, _id}) => {
             const HistoryData = await HistoryModel.findOne({itemCode: ItemCode, _id: _id})
             if (HistoryData){
                 const StatusItem = HistoryData.get("status")

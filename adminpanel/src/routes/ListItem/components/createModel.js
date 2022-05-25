@@ -42,21 +42,21 @@ function CreateModel({setCreatePopup, createItem, category}) {
             <div className="p-6 text-center">
             <form className="px-8 pt-6 mb-4">
               <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" for="name">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
                   Name
                 </label>
                 <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                 type="text" placeholder="name" onChange={(event) => setName(event.target.value)} />
               </div>
               <div className="mb-6">
-                <label className="block text-gray-700 text-sm font-bold mb-2" for="description">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
                   Description
                 </label>
-                <textarea id="message" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                <textarea id="message" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" 
                 placeholder="discription..." onChange={(event) => setDescription(event.target.value)}></textarea>
               </div>
               <div className="mb-6">
-                <label className="block text-gray-700 text-sm font-bold mb-2" for="description">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
                   Image URL 
                 </label>
                 <div className="flex">
@@ -68,10 +68,10 @@ function CreateModel({setCreatePopup, createItem, category}) {
                 </div>
               </div>
               <div className="mb-6">
-                <label className="block text-gray-700 text-sm font-bold mb-2" for="description">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
                   Tag
                 </label>
-                <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                  onChange={(event) => setTag(event.target.value)} value={tag}>
                   <Category/>
                 </select>

@@ -7,7 +7,6 @@ import UpdateModal from "./components/updatePopup";
 function Reservation() {
 
   const [reservation, setReservation] = useState(null);
-  const [item, setItem] = useState(null);
   const [show, setShow] = useState("");
   const [updatePopup, setUpdatePopup] = useState({status: false, target: null});
 
@@ -26,19 +25,11 @@ function Reservation() {
               reservedTime
               createdAt
             }
-            item{
-              itemCode
-              name
-              description
-              imageUrl
-              tags
-            }
           }
         `
       }
     }).then((result) => {
       setReservation(result.data.data.Reservation);
-      setItem(result.data.data.item);
     })
   }
 

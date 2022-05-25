@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-function Table({dataHistory, show}) {
+function Table({dataHistory, show, setUpdatePopup}) {
 
     const toReturn = (dEnd, dStart) => {
         var t2 = dEnd.getTime();
@@ -18,7 +18,7 @@ function Table({dataHistory, show}) {
                 return(<Labels status={data.status} key={data.status+"-"+data._id}/>)
             }
 
-            if (data.status === show || show === ""){
+            if (data.status === show || show === "" || data.username.includes(show)){
             return (
             <tr className="bg-white border-b" key={data._id}>
                 <td className="p-4"><Status/></td>
@@ -31,7 +31,7 @@ function Table({dataHistory, show}) {
                 <td className="p-4">
                 {data.status === "returned" ? toReturn(new Date(data.updatedAt), new Date(data.createdAt)) : toReturn(new Date(), new Date(data.createdAt))}
                 </td>
-                <td>
+                <td onClick={ () => setUpdatePopup({status: true, target: data})}>
                     {data.status === "borrowing" ? 
                     <span className="text-lime-600 hover:text-lime-800">Update</span>
                     :<></>}

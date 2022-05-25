@@ -15,7 +15,7 @@ function ListItem() {
   const [createPopup, setCreatePopup] = useState({status: false});
   const [categoryPopup, setCategoryPopup] = useState({status: false});
 
-  const getCategory = () => {
+  const getData = () => {
     axios({
       url: 'http://localhost:3001/graphql',
       method: "post",
@@ -58,28 +58,118 @@ function ListItem() {
       }
       ).then((result) => {
         console.log(result)
-        getCategory()
+        getData()
       })
     }
 
-    deleteData(deletePopup.target.itemCode);
-    setDeletePopup({status: false, target: null});
+    await deleteData(deletePopup.target.itemCode);
+    await setDeletePopup({status: false, target: null});
   }
 
-  const editItem = async () => {
-    
+  const editItem = async (name, description, tag, img) => {
+    const editData = () => {
+      let graphql = ` 
+        mutation{
+          updateItem(record:{itemCode:"${editPopup.target.itemCode}", name:"${name}", description:"${description}", imageUrl:"${img}", tags:["${tag}"]}, filter:{itemCode: "${editPopup.target.itemCode}"}){
+            record{
+              name
+              description
+              imageUrl
+              tags
+              itemCode
+              _id
+            }
+          }
+        }
+      `
+      console.log(graphql)
+      axios({
+        url: 'http://localhost:3001/graphql',
+        method: "post",
+        data: {
+          "query": graphql
+        },
+        headers: {
+          'content-type': 'application/json'
+        }
+      }
+      ).then((result) => {
+        console.log(result)
+        getData()
+      })
+    }
+
+    await editData()
+    await setEditPopup({status: false, target: null})
   }
 
-  const createItem = async () => {
-    
+  const createItem = async (name, description, tag, img) => {
+    const createData = () => {
+      let graphql = ` 
+        mutation{
+          createItem(name: "${name}",description:"${description}",ImageUrl:"${img}",tags: ["${tag}"]){
+            itemCode
+            _id
+            name
+          }
+        }
+      `
+      console.log(graphql)
+      axios({
+        url: 'http://localhost:3001/graphql',
+        method: "post",
+        data: {
+          "query": graphql
+        },
+        headers: {
+          'content-type': 'application/json'
+        }
+      }
+      ).then((result) => {
+        console.log(result)
+        getData()
+      })
+    }
+
+    await createData()
+    await setCreatePopup({status: false})
   }
 
-  const createCategory = async () => {
-    
+  const createCategory = async (name) => {
+    const createData = () => {
+      let graphql = ` 
+        mutation{
+          createCatagory(name:"${name}", prefix:"${name.substr(0, 4)}"){
+            id
+            _id
+            name
+            prefix
+          }
+      }
+      `
+      console.log(graphql)
+      axios({
+        url: 'http://localhost:3001/graphql',
+        method: "post",
+        data: {
+          "query": graphql
+        },
+        headers: {
+          'content-type': 'application/json'
+        }
+      }
+      ).then((result) => {
+        console.log(result)
+        getData()
+      })
+    }
+
+    await createData()
+    await setCategoryPopup({status: false})
   }
 
   useEffect(() => {
-    getCategory();
+    getData();
   }, [])
 
   return (
@@ -87,7 +177,7 @@ function ListItem() {
       <div className='grid grid-cols-10'>
           <div className='col-start-1 font-bold text-2xl'> List Item</div>
           <div className='col-end-11 col-span-2 font-bold text-md justify-items-end'> 
-            <button class="disabled:opacity-25 bg-white border border-sky-500 hover:text-sky-600 text-sky-500 py-2 px-4 rounded"
+            <button className="disabled:opacity-25 bg-white border border-sky-500 hover:text-sky-600 text-sky-500 py-2 px-4 rounded"
             onClick={() => setCategoryPopup({status:true})}
             disabled={category == null}
             >
@@ -95,7 +185,7 @@ function ListItem() {
             </button>
           </div>
           <div className='col-end-12 font-bold text-md justify-items-end'> 
-            <button class="disabled:opacity-25 bg-white border border-sky-500 hover:text-sky-600 text-sky-500 py-2 px-4 rounded"
+            <button className="disabled:opacity-25 bg-white border border-sky-500 hover:text-sky-600 text-sky-500 py-2 px-4 rounded"
             onClick={() => setCreatePopup({status:true})}
             disabled={item == null}
             >
@@ -111,7 +201,7 @@ function ListItem() {
       {deletePopup.status ? <DeleteModel item={deletePopup.target} setDeletePopup={setDeletePopup} deleteItem={deleteItem}/> : null}
       {editPopup.status ? <EditModel item={editPopup.target} setEditPopup={setEditPopup} editItem={editItem} category={category}/> : null}
       {createPopup.status ? <CreateModel setCreatePopup={setCreatePopup} createItem={createItem} category={category}/> : null}
-      {categoryPopup.status ? <CategoryModel setCategoryPopup={setCategoryPopup} creatrCategory={createCategory} category={category}/> : null}
+      {categoryPopup.status ? <CategoryModel setCategoryPopup={setCategoryPopup} createCategory={createCategory} category={category}/> : null}
     </div>
   );
 }
