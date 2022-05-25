@@ -12,7 +12,7 @@ function History() {
 
   const getHistory = () => {
     axios({
-      url: 'http://localhost:3001/graphql',
+      url: process.env.GRAPHQL_URL,
       method: "post",
       data: {
         query: `
@@ -46,7 +46,7 @@ function History() {
       `
       console.log(graphql)
       axios({
-        url: 'http://localhost:3001/graphql',
+        url: process.env.GRAPHQL_URL,
         method: "post",
         data: {
           "query": graphql

@@ -12,7 +12,7 @@ function Reservation() {
 
   const getReservation = () => {
     axios({
-      url: 'http://localhost:3001/graphql',
+      url: process.env.GRAPHQL_URL,
       method: "post",
       data: {
         query: `
@@ -65,7 +65,7 @@ function Reservation() {
 
       console.log(graphql)
       axios({
-        url: 'http://localhost:3001/graphql',
+        url: process.env.GRAPHQL_URL,
         method: "post",
         data: {
           "query": graphql
