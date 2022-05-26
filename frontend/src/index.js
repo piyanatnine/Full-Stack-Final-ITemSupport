@@ -11,6 +11,7 @@ import App from './App';
 import DetailItem from "./routes/detailItem"
 import ListItem from './routes/listItem';
 import Login from './routes/login';
+import User from './routes/user';
 import "bootstrap/dist/css/bootstrap.min.css";
 import reportWebVitals from './reportWebVitals';
 import {
@@ -23,7 +24,7 @@ import {
 const rootElement = document.getElementById("root");
 const loggedIn = JSON.parse(localStorage.getItem('User'));
 const client = new ApolloClient({
-  uri: 'http://localhost:3000/graphql',
+  uri: 'http://localhost:3001/graphql',
   cache: new InMemoryCache()
 });
 
@@ -37,6 +38,7 @@ ReactDOM.render(
           <Route path="detail/:id" element={<DetailItem />} />
           <Route path="list" element={<ListItem />} />
           <Route path="login" element={<Login />} />
+          <Route path="user" element={<User />} />
         </Routes>
     </BrowserRouter>
   </ApolloProvider>
