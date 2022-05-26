@@ -14,7 +14,7 @@ function Table({dataReservation, show, updatePopup}) {
                 return(<Labels status={data.status} key={data.status+"-"+data._id}/>)
             }
 
-            if (data.status === show || show === ""){
+            if (data.status === show || show === "" || data.itemCode.includes(show.toLowerCase()) || data.username.includes(show.toLowerCase())){
             return (
             <tr className="bg-white border-b" key={data._id}>
                 <td className="p-4"><Status/></td>

@@ -95,8 +95,14 @@ function Reservation() {
     return (<>
       {reservation && 
       <div className="Reservation">
-        <div className="grid">
-          <div className='col-start-1 font-bold text-2xl'> List Reservation</div>
+        <div className="grid grid-cols-5">
+          <div className='font-bold text-3xl'> List Reservation</div>
+          <div className="col-end-6">
+              <input type="search" class="px-3 py-1.5 w-full justify-center text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded m-0" 
+                placeholder="Search by Item Code or User"
+                onChange={(event)=> {setShow(event.target.value)}}
+              />
+          </div>
         </div>
         <div className="grid grid-cols-4 gap-12 mt-5">
           <div className="grid h-48 w-full bg-indigo-500 hover:bg-indigo-600 drop-shadow-lg place-content-center"
