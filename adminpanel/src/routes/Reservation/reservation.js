@@ -98,7 +98,7 @@ function Reservation() {
         <div className="grid grid-cols-5">
           <div className='font-bold text-3xl'> List Reservation</div>
           <div className="col-end-6">
-              <input type="search" class="px-3 py-1.5 w-full justify-center text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded m-0" 
+              <input type="search" className="px-3 py-1.5 w-full justify-center text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded m-0" 
                 placeholder="Search by Item Code or User"
                 onChange={(event)=> {setShow(event.target.value)}}
               />
