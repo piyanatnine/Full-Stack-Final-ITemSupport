@@ -12,7 +12,7 @@ function Reservation() {
 
   const getReservation = () => {
     axios({
-      url: process.env.GRAPHQL_URL,
+      url: process.env.REACT_APP_GRAPHQL_URL,
       method: "post",
       data: {
         query: `
@@ -65,7 +65,7 @@ function Reservation() {
 
       console.log(graphql)
       axios({
-        url: process.env.GRAPHQL_URL,
+        url: process.env.REACT_APP_GRAPHQL_URL,
         method: "post",
         data: {
           "query": graphql

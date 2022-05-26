@@ -17,7 +17,7 @@ function ListItem() {
 
   const getData = () => {
     axios({
-      url: process.env.GRAPHQL_URL,
+      url: process.env.REACT_APP_GRAPHQL_URL,
       method: "post",
       data: {
         query: `
@@ -47,7 +47,7 @@ function ListItem() {
       let graphql = `mutation { deleteItem(filter: { itemCode: "${data}" }, sort: ITEMCODE_ASC) {recordId record {itemCode}}}`
       console.log(graphql)
       axios({
-        url: process.env.GRAPHQL_URL,
+        url: process.env.REACT_APP_GRAPHQL_URL,
         method: "post",
         data: {
           "query": graphql
@@ -84,7 +84,7 @@ function ListItem() {
       `
       console.log(graphql)
       axios({
-        url: process.env.GRAPHQL_URL,
+        url: process.env.REACT_APP_GRAPHQL_URL,
         method: "post",
         data: {
           "query": graphql
@@ -116,7 +116,7 @@ function ListItem() {
       `
       console.log(graphql)
       axios({
-        url: process.env.GRAPHQL_URL,
+        url: process.env.REACT_APP_GRAPHQL_URL,
         method: "post",
         data: {
           "query": graphql
@@ -149,7 +149,7 @@ function ListItem() {
       `
       console.log(graphql)
       axios({
-        url: process.env.GRAPHQL_URL,
+        url: process.env.REACT_APP_GRAPHQL_URL,
         method: "post",
         data: {
           "query": graphql
@@ -169,6 +169,7 @@ function ListItem() {
   }
 
   useEffect(() => {
+    console.log(process.env.REACT_APP_REACT_APP_GRAPHQL_URL)
     getData();
   }, [])
 
