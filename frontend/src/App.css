@@ -18,15 +18,35 @@
   min-height: 100px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .App-link {
   color: #61dafb;
 }
+
+.userprofile{
+  background-color: #282c34;
+}
+
+.userprofile:hover{
+  
+  cursor: pointer;
+}
+
+.loginPage{
+  background-image:url("./Technology.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.textLogin {
+  text-shadow: 2px 2px black;
+}
+
 
 @keyframes App-logo-spin {
   from {

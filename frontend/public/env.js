@@ -4,7 +4,7 @@ window.env = {
   "APPDATA": "C:\\Users\\Asus\\AppData\\Roaming",
   "ChocolateyInstall": "C:\\ProgramData\\chocolatey",
   "ChocolateyLastPathUpdate": "132728163179179696",
-  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_13452_DHLKTPQYLGHQTPLS",
+  "CHROME_CRASHPAD_PIPE_NAME": "\\\\.\\pipe\\crashpad_25588_FEQRHWIKTVHTZKSI",
   "COLOR": "1",
   "COLORTERM": "truecolor",
   "CommonProgramFiles": "C:\\Program Files\\Common Files",
@@ -81,6 +81,5 @@ window.env = {
   "VSCODE_GIT_ASKPASS_MAIN": "c:\\Users\\Asus\\AppData\\Local\\Programs\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js",
   "VSCODE_GIT_ASKPASS_NODE": "C:\\Users\\Asus\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
   "VSCODE_GIT_IPC_HANDLE": "\\\\.\\pipe\\vscode-git-10c748c885-sock",
-  "windir": "C:\\WINDOWS",
-  "__COMPAT_LAYER": "DetectorsAppHealth"
+  "windir": "C:\\WINDOWS"
 };

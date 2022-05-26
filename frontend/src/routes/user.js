@@ -1,12 +1,15 @@
 import '../App.css';
-import { Container,  Row, Button } from 'react-bootstrap';
+import { Container,  Dropdown } from 'react-bootstrap';
 import {
     useQuery,
     gql,
     useMutation 
   } from "@apollo/client";
 import React from 'react';
+import { auth } from '../firebase.config';
+import { useNavigate  } from "react-router-dom";
 export default function User(){
+    const navigate = useNavigate();
     const user = JSON.parse(localStorage.User)
     const USERDATA = gql`
     query{
@@ -18,7 +21,7 @@ export default function User(){
           reservedTime
         },
         history(filter:{
-          username:"${"it"+user.email.split('@')[0]}"
+          username:"${user.email}"
         }){
           itemCode
           status
@@ -40,11 +43,39 @@ export default function User(){
         return reservItemsCode.includes(obj.itemCode)
     });
     console.log(reservItemsList)
+    function toUserProflie(){
+        navigate(`/user`);
+      }
+      function tolist(){
+        navigate(`/list`);
+      }
+      const signOut = async () => {
+        await auth.signOut();
+        localStorage.removeItem('User');
+        //กลับไปหน้า login
+        navigate(`/login`);
+      }
 
     return(
         <div className="App">
             <header className="App-header">
-                User
+            <div className='row' style={{height:"100px"}}>
+          <div className='col-1 userprofile' style={{display: "flex",justifyContent:"center",alignItems: "center"}} onClick={tolist}>Home</div>
+          <div className='col-9'></div>
+          <div className="col-1" style={{marginRight:"10px", display: "flex",justifyContent:"center",alignItems: "center"}}>
+            <Dropdown>
+            <Dropdown.Toggle className="userprofile" style={{backgroundColor:"#282c34", border:"none", height:"100px"}} >
+            <img src={JSON.parse(localStorage.User).photoURL} alt="profliepic" style={{borderRadius: "50%",marginRight:"10px"}} height={40} width="auto"/>
+            {JSON.parse(localStorage.User).displayName}
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu style={{width:"240px"}}>
+              <Dropdown.Item onClick={toUserProflie}>Profile</Dropdown.Item>
+              <Dropdown.Item onClick={signOut}>Log out</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+            </div>
+        </div>
             </header>
             <div className="App-body">
             <Container style={{padding: 10, textAlign: "center"}}>
@@ -96,6 +127,8 @@ export default function User(){
                             var itdata = data.item.filter(obj => {
                                 return obj.itemCode === item.itemCode
                             })[0];
+                            // console.log(data.item)
+                            // console.log(item)
                             var state;
                             if(item.status === "borrowing"){state="ยังไม่คืน";}
                             else if(item.status === "returned"){state="คืนไปแล้ว";}

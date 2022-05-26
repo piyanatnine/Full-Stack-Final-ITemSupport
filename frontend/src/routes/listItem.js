@@ -2,12 +2,13 @@ import '../App.css';
 import { Container,  Row, Button } from 'react-bootstrap';
 import { useNavigate  } from "react-router-dom";
 import CardItem from '../components/cardItem';
-import { Card } from 'react-bootstrap';
+import { Card, Dropdown } from 'react-bootstrap';
 import {
   useQuery,
   gql
 } from "@apollo/client";
 import { useEffect,useState } from 'react';
+import { auth } from '../firebase.config';
 
 export default function ListItem() {
 
@@ -45,11 +46,39 @@ export default function ListItem() {
       navigate(`/detail/${itemdata}`);
       // item[0].itemCode
       }
+    function toUserProflie(){
+      navigate(`/user`);
+    }
+    function tolist(){
+      navigate(`/list`);
+    }
+    const signOut = async () => {
+      await auth.signOut();
+      localStorage.removeItem('User');
+      //กลับไปหน้า login
+      navigate(`/login`);
+    }
 
   return (
     <div className="App">
       <header className="App-header">
-      
+        <div className='row' style={{height:"100px"}}>
+          <div className='col-1 userprofile' style={{display: "flex",justifyContent:"center",alignItems: "center"}} onClick={tolist}>Home</div>
+          <div className='col-9'></div>
+          <div className="col-1" style={{marginRight:"10px", display: "flex",justifyContent:"center",alignItems: "center"}}>
+            <Dropdown>
+            <Dropdown.Toggle className="userprofile" style={{backgroundColor:"#282c34", border:"none", height:"100px"}} >
+            <img src={JSON.parse(localStorage.User).photoURL} alt="profliepic" style={{borderRadius: "50%",marginRight:"10px"}} height={40} width="auto"/>
+            {JSON.parse(localStorage.User).displayName}
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu style={{width:"240px"}}>
+              <Dropdown.Item onClick={toUserProflie}>Profile</Dropdown.Item>
+              <Dropdown.Item onClick={signOut}>Log out</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+            </div>
+        </div>
       </header>
       <Container>
         {renderListcol(data.category).map((item, index) => <Row key={index} style={{margin: 10}}>
