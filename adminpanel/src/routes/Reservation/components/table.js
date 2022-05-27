@@ -9,14 +9,13 @@ function Table({dataReservation, show, updatePopup}) {
     const DataItem = () => {
 
         return (dataReverse.map((data) => {
-
             const Status = () => {
-                return(<Labels status={data.status} key={data.status+"-"+data._id}/>)
+                return(<Labels status={data.status} key={data.status+"-5"+data._id}/>)
             }
 
             if (data.status === show || show === "" || data.itemCode.includes(show.toLowerCase()) || data.username.includes(show.toLowerCase())){
             return (
-            <tr className="bg-white border-b" key={data._id}>
+            <tr className="bg-white border-b" key={data._id} >
                 <td className="p-4"><Status/></td>
                 <td className="p-4">{data.itemCode}</td>
                 <td className="p-4">{data.username}</td>
@@ -40,7 +39,7 @@ function Table({dataReservation, show, updatePopup}) {
                 )}
             </tr>)
             }
-            return<></>
+            return<tr key={data._id}></tr>
         }))
     }
     

@@ -36,17 +36,13 @@ function Reservation() {
   const updateReservation = (id, username, completed) =>{
     const updateData = () => {
       let createHistory = `createHistory(
-        record:{
           username: "${username}"
           itemCode: "${id}"
           status: "borrowing"
-        }) {
-          recordId
-          record {
-            username
-            itemCode
-            status
-          }
+        ) {   
+          username
+          itemCode
+          status
         }`
 
       let graphql = `mutation {

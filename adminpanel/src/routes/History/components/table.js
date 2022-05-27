@@ -10,9 +10,10 @@ function Table({dataHistory, show, setUpdatePopup}) {
 
     const DataItem = () => {
 
-        const reverse = dataHistory
-
-        return (reverse.map((data) => {
+        const dataReverse = dataHistory
+        dataReverse.reverse()
+        
+        return (dataReverse.map((data) => {
 
             const Status = () => {
                 return(<Labels status={data.status} key={data.status+"-"+data._id}/>)
@@ -40,7 +41,7 @@ function Table({dataHistory, show, setUpdatePopup}) {
                 
             </tr>)
             }
-            return<></>
+            return<tr key={data._id}></tr>
         }))
     }
     
