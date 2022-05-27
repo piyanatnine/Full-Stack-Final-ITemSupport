@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import '../App.css';
 import Item from '../components/DetailItem/item'
+import axios from "axios";
 import { useNavigate  } from "react-router-dom";
 import {
   useQuery,
@@ -9,26 +10,35 @@ import {
 } from "@apollo/client";
 import Modal from 'react-modal';
 import {  Dropdown } from 'react-bootstrap';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { auth } from '../firebase.config';
 
 export default function DetailItem(){
   const navigate = useNavigate();
   Modal.setAppElement('#root');
+  const [allData, setdata] = useState([])
+  const [itemsData, setItemdata] = useState([]);
+  const [user, setUser] = useState("")
+  const [notavaliable, setnotava] = useState([]);
+  const [countAva, setavaitem] = useState(0)
+  const [countItems, setcount] = useState(0)
   const [modalIsOpen, setIsOpen] = useState(false)
+  const [modalconfirm, setconfirm] = useState('')
   const [modalItem, setModalItem] = useState({
     description: "",
     imageUrl: "",
     itemCode: "",
     name: "",
+    status:""
   })
   const [avanum, setavanum] = useState(0)
   const [dateReserv, setDate] = useState("");
   const [timeReserv, setTime] = useState("");
   const [modalReservby, setReservby] = useState("");
   const [modalReservtype, setReservtype] = useState("");
+  const [modalBorrowed, setBorrowed] = useState("");
   let { id } = useParams();
-  const ITEM_DATA = gql`
+  const ITEM_DATA = `
     query {
       item(filter:{
         tags : ["${id}"]
@@ -46,6 +56,7 @@ export default function DetailItem(){
     		username
     		itemCode
         reservedTime
+        status
       }
   		history (filter:{
         status: "borrowing"
@@ -54,6 +65,7 @@ export default function DetailItem(){
         username
         itemCode
         createdAt
+        status
       }
     }
 
@@ -69,22 +81,66 @@ export default function DetailItem(){
                           status: $status
         ){
           username
-          itemCode
-          reservedTime
-          status
-          updatedAt
-          createdAt
         }
       }
     `;
-  const [postReserv, reservData] = useMutation(RESERVATION)
-  const { loading, error, data } = useQuery(ITEM_DATA);
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
-  console.log(data)
-  const user = JSON.parse(localStorage.User);
-  var numall = data.item.length, numnotava = 0;
-  var notavaliable = [...data.Reservation, ...data.history]
+  const [postReserv, reservData] = useMutation(RESERVATION,
+    {
+      onCompleted: (data) => {
+        if(data.createReservation.username === "Error: item already reserved"){
+          setconfirm(data.createReservation.username)
+        }else{
+          setconfirm("Success")
+        }
+        console.log(data) // the response
+      },
+      onError: (error) => {
+        console.log(error); // the error if that is the case
+      },
+    });
+    const getReservation = () => {
+      axios({
+        url: process.env.REACT_APP_GRAPHQL_URL,
+        method: "post",
+        data: {
+          query: ITEM_DATA
+        },
+        headers: {
+          'content-type': 'application/json'
+        }
+      }).then((result) => {
+        setdata(result.data.data);
+        setUser(JSON.parse(localStorage.User))
+        let countitemava = result.data.data.item.length;
+        setcount(countitemava)
+        var notavalist = [...result.data.data.Reservation, ...result.data.data.history];
+        setnotava(notavalist)
+        const itemcodeitems = result.data.data.item.map(o => o.itemCode)
+        notavalist = notavalist.map(o => o.itemCode)
+        for (let i = 0; i < notavalist.length; i++) {
+          if(itemcodeitems.includes(notavalist[i])){
+            countitemava-=1;
+          }
+        }
+        console.log(notavalist)
+        setavaitem(countitemava)
+        setItemdata(result.data.data.item.slice().sort((a,b) => (a.name > b.name) - (a.name < b.name)))
+        // const user = JSON.parse(localStorage.User);
+        // var numall = data.item.length, numnotava = 0;
+        // var notavaliable = [...data.Reservation, ...data.history]
+      })
+    }
+    useEffect(() => {
+      getReservation();
+    },[]
+    )
+  // const { loading, error, data } = useQuery(ITEM_DATA);
+  // if (loading) return 'Loading...';
+  // if (error) return `Error! ${error.message}`;
+  // console.log(data)
+  // const user = JSON.parse(localStorage.User);
+  // var numall = data.item.length, numnotava = 0;
+  // var notavaliable = [...data.Reservation, ...data.history]
   const reservButton = (props) => {
     
       return(
@@ -113,25 +169,24 @@ export default function DetailItem(){
           reservedTime: dateTimeReserv,
           status: "waiting"
         
-      }}).then(() => {
-        console.log(reservData)
-        closeModal();
-      })
+      }})
       
   }
 
-  const sortedItemdata = data.item.slice().sort((a,b) => (a.name > b.name) - (a.name < b.name))
+  
+  
   const ListItem = () => {
-    return sortedItemdata.map((item) => {
-      var avaliable = true;
-      for (let j = 0; j < notavaliable.length; j++) {
-            if(item.itemCode === notavaliable[j].itemCode){
-              avaliable = false
-              numnotava+=1;
-              break;
-            }
-          }
-          setavanum(numall-numnotava)
+    return itemsData.map((item) => {
+      var avaliable = !notavaliable.map(o => o.itemCode).includes(item.itemCode);
+      // var numnotava = 0;
+      // for (let j = 0; j < notavaliable.length; j++) {
+      //       if(item.itemCode === notavaliable[j].itemCode){
+      //         avaliable = false
+      //         numnotava+=1;
+      //         break;
+      //       }
+      //     }
+          // setavaitem(numall-numnotava)
       return (
         
         <Item data={item} isavaliable={avaliable} Button={reservButton} key={item._id}/>
@@ -139,11 +194,22 @@ export default function DetailItem(){
     })
   }
 
+  const toReturn = (dEnd, dStart) => {
+    var t2 = dEnd.getTime();
+    var t1 = dStart.getTime();    
+    var totalday = Math.floor((t2-t1)/(24*3600*1000));
+    return totalday +" day "+(totalday%24) +" hours";
+}
+
   function openModal(itemData, isavaliable){
     if(!isavaliable){
       var reservby = notavaliable.filter(i => i.itemCode === itemData.itemCode);
+      if(reservby[0].status === "borrowing"){
+        setBorrowed(toReturn(new Date(), new Date(reservby[0].createdAt)))
+        console.log(reservby[0].createdAt)
+      }
       setReservby(reservby[0].username)
-      setReservtype(reservby[0].__typename)
+      setReservtype(reservby[0].status)
     }
     console.log(itemData)
     setModalItem(itemData)
@@ -156,6 +222,8 @@ export default function DetailItem(){
     setReservby("")
     setReservtype("")
     setTime("")
+    setconfirm('')
+    getReservation()
   }
   function toUserProflie(){
     navigate(`/user`);
@@ -174,7 +242,9 @@ export default function DetailItem(){
     <div className="App">
       <header className="App-header">
       <div className='row' style={{height:"100px"}}>
-          <div className='col-1 userprofile' style={{display: "flex",justifyContent:"center",alignItems: "center"}} onClick={tolist}>Home</div>
+          <div className='col-1 userprofile' style={{display: "flex",justifyContent:"center",alignItems: "center"}} onClick={tolist}>
+            <img src={require("../it-logo.png")} alt="logo" height={40}/>
+          </div>
           <div className='col-9'></div>
           <div className="col-1" style={{marginRight:"10px", display: "flex",justifyContent:"center",alignItems: "center"}}>
             <Dropdown>
@@ -203,7 +273,7 @@ export default function DetailItem(){
                 
               </div>
               <div className='col-2'>
-                <h1>{avanum}/{numall}</h1>
+                <h1>{countAva}/{countItems}</h1>
               </div>
             </div>
             <div className='mt-5'>
@@ -228,7 +298,8 @@ export default function DetailItem(){
           transform: 'translate(-50%, -50%)',
           width:'40%',
           border: '1px solid black',
-          backgroundColor: '#F3F3F3'
+          backgroundColor: '#F3F3F3',
+          zindex: '1'
         },
       }}>
           <div><b>{modalItem.name}</b></div>
@@ -248,8 +319,8 @@ export default function DetailItem(){
                         <input disabled={modalReservby} style={{ marginBottom:"20px"}} type="date" value={dateReserv} onChange={e=> setDate(e.target.value)}/>
                         <input disabled={modalReservby} style={{ marginBottom:"20px" ,width:"140px"}} type="time" value={timeReserv} onChange={e=> setTime(e.target.value)}/></div>
                         {!modalReservby ? <p>จองโดย: <b>{user.displayName}</b></p>
-                        : modalReservtype === "historys" ? <p>ตอนนี้ถูกยืมโดย: <b>{modalReservby}</b></p>:
-                        <p>ถูกจองแล้วโดย: <b>{modalReservby}</b></p>}
+                        : modalReservtype === "borrowing" ? <p>ตอนนี้ถูกยืมโดย: <b>{modalReservby}</b> <br/>เป็นเวลา {modalBorrowed}</p>:
+                        <p>ถูกจองไปแล้ว</p>}
               </form>
               <button disabled={!(dateReserv && timeReserv) || modalReservby} onClick={newReservation} style={{width:"100%"}}>จอง</button>
             </div>
@@ -259,7 +330,27 @@ export default function DetailItem(){
             <p>{modalItem.description}</p>
           </div>
         </Modal>  
-        
+        <Modal
+        isOpen={modalconfirm}
+        onRequestClose={closeModal}
+        style={{content: {
+          top: '50%',
+          left: '50%',
+          right: 'auto',
+          bottom: 'auto',
+          marginRight: '-50%',
+          transform: 'translate(-50%, -50%)',
+          width:'40%',
+          height: '20%',
+          border: '1px solid black',
+          backgroundColor: '#F3F3F3',
+          zindex: '2'
+        }}}
+      >
+        {modalconfirm === "Success" ? <h2>Success</h2> : <h2>Error</h2>}
+        <div>{modalconfirm}</div>
+        <button onClick={closeModal}>close</button>
+      </Modal>
     </div>
   );
     

@@ -63,7 +63,9 @@ export default function ListItem() {
     <div className="App">
       <header className="App-header">
         <div className='row' style={{height:"100px"}}>
-          <div className='col-1 userprofile' style={{display: "flex",justifyContent:"center",alignItems: "center"}} onClick={tolist}>Home</div>
+          <div className='col-1 userprofile' style={{display: "flex",justifyContent:"center",alignItems: "center"}} onClick={tolist}>
+          <img src={require("../it-logo.png")} alt="logo" height={40}/>
+          </div>
           <div className='col-9'></div>
           <div className="col-1" style={{marginRight:"10px", display: "flex",justifyContent:"center",alignItems: "center"}}>
             <Dropdown>

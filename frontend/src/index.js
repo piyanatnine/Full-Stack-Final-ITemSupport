@@ -24,7 +24,7 @@ import {
 const rootElement = document.getElementById("root");
 const loggedIn = JSON.parse(localStorage.getItem('User'));
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql',
+  uri: process.env.REACT_APP_GRAPHQL_URL,
   cache: new InMemoryCache()
 });
 
