@@ -1,18 +1,12 @@
 import '../App.css';
-import { Card, Image } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 export default function CardItem(props){
     const itemData = props.item
     return(
         <div style={{display: "flex", flexDirection: "row",justifyContent: "flex-start"}}>
-                                    <Image src={require('../image-placeholder.jpg')} style={{width: "200px", height: "auto"}} />
                                     <Card.Body style={{textAlign: 'left'}}>
-                                        <Card.Title>{itemData.name}</Card.Title>
-                                        {/* <Card.Text>
-                                            {itemData.description}
-                                        </Card.Text>
-                                        <Card.Text>Instock: {itemData.inStock}</Card.Text> */}
-                                        
+                                        <Card.Title>{itemData.name.charAt(0).toUpperCase()+ itemData.name.slice(1)}</Card.Title>
                                     </Card.Body>
         </div>
                                     

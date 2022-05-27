@@ -3,7 +3,6 @@ import { Container,  Dropdown } from 'react-bootstrap';
 import {
     useQuery,
     gql,
-    useMutation 
   } from "@apollo/client";
 import React from 'react';
 import { auth } from '../firebase.config';
@@ -94,7 +93,6 @@ export default function User(){
                             })[0].reservedTime);
                             var status = "",diff = 0,diffday,diffhour;
                             var current = new Date();
-                            // console.log(reservTime)
                             if(current > reservTime){
                                 diff = Math.ceil(Math.abs(current - reservTime)/ (1000 * 60 * 60 ))
                                  diffday = Math.ceil(diff/24)-1
@@ -129,8 +127,6 @@ export default function User(){
                             var itdata = data.item.filter(obj => {
                                 return obj.itemCode === item.itemCode
                             })[0];
-                            // console.log(data.item)
-                            // console.log(item)
                             var state;
                             if(item.status === "borrowing"){state="ยังไม่คืน";}
                             else if(item.status === "returned"){state="คืนไปแล้ว";}

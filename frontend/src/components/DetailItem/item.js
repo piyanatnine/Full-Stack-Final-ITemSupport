@@ -1,7 +1,3 @@
-import {
-  useQuery,
-  gql
-} from "@apollo/client";
 export default function Item(props){
   const itemData = props.data
   const placeholder = (ev) => {

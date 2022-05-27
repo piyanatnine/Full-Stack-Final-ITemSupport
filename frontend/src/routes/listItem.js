@@ -7,14 +7,11 @@ import {
   useQuery,
   gql
 } from "@apollo/client";
-import { useEffect,useState } from 'react';
 import { auth } from '../firebase.config';
 
 export default function ListItem() {
 
   const navigate = useNavigate();
-  // const [items, setItem] = useState([])
-  const [navi, setnavi] = useState('');
   const ITEM_DATA = gql`
     query {
       category {
@@ -28,7 +25,7 @@ export default function ListItem() {
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
-  console.log(data.category)
+
 
   function renderListcol(list){
     let itembyrow = [];
@@ -44,7 +41,6 @@ export default function ListItem() {
 
     function handleClick(itemdata) {
       navigate(`/detail/${itemdata}`);
-      // item[0].itemCode
       }
     function toUserProflie(){
       navigate(`/user`);

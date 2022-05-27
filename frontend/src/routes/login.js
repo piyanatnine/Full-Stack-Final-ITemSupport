@@ -25,11 +25,11 @@ export default function Login(){
     return (
         <div className="App">
           <header className="App-header">
-            
+             <div className='col-1' style={{paddingLeft:"10px"}}><img src={require("../it-logo.png")} alt="logo" height={40}/></div>
           </header>
           <div className="App-body loginPage">
           <div style={{paddingTop:"10%",display:"flex", textAlign:"center",justifyContent:"center",color:'white'}}>
-            <div>
+            <div style={{paddingTop:"40px",height:"200px" ,width:"600px" ,backgroundColor:"rgba(0, 0, 0, .5)"}}>
               <h1 className="textLogin"> จองและยืมอุปกรณ์ IT</h1>
             <p className="textLogin">คณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</p>
             <button className="button" onClick={signInWithGoogle}>

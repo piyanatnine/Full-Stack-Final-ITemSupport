@@ -7,7 +7,6 @@ import { BrowserRouter,
  } from 'react-router-dom';
 import './index.css';
 
-import App from './App';
 import DetailItem from "./routes/detailItem"
 import ListItem from './routes/listItem';
 import Login from './routes/login';

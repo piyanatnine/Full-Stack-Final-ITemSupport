@@ -4,7 +4,6 @@ import Item from '../components/DetailItem/item'
 import axios from "axios";
 import { useNavigate  } from "react-router-dom";
 import {
-  useQuery,
   gql,
   useMutation 
 } from "@apollo/client";
@@ -16,7 +15,6 @@ import { auth } from '../firebase.config';
 export default function DetailItem(){
   const navigate = useNavigate();
   Modal.setAppElement('#root');
-  const [allData, setdata] = useState([])
   const [itemsData, setItemdata] = useState([]);
   const [user, setUser] = useState("")
   const [notavaliable, setnotava] = useState([]);
@@ -31,7 +29,6 @@ export default function DetailItem(){
     name: "",
     status:""
   })
-  const [avanum, setavanum] = useState(0)
   const [dateReserv, setDate] = useState("");
   const [timeReserv, setTime] = useState("");
   const [modalReservby, setReservby] = useState("");
@@ -84,7 +81,7 @@ export default function DetailItem(){
         }
       }
     `;
-  const [postReserv, reservData] = useMutation(RESERVATION,
+  const [postReserv] = useMutation(RESERVATION,
     {
       onCompleted: (data) => {
         if(data.createReservation.username === "Error: item already reserved"){
@@ -92,7 +89,6 @@ export default function DetailItem(){
         }else{
           setconfirm("Success")
         }
-        console.log(data) // the response
       },
       onError: (error) => {
         console.log(error); // the error if that is the case
@@ -109,7 +105,6 @@ export default function DetailItem(){
           'content-type': 'application/json'
         }
       }).then((result) => {
-        setdata(result.data.data);
         setUser(JSON.parse(localStorage.User))
         let countitemava = result.data.data.item.length;
         setcount(countitemava)
@@ -122,25 +117,16 @@ export default function DetailItem(){
             countitemava-=1;
           }
         }
-        console.log(notavalist)
         setavaitem(countitemava)
         setItemdata(result.data.data.item.slice().sort((a,b) => (a.name > b.name) - (a.name < b.name)))
-        // const user = JSON.parse(localStorage.User);
-        // var numall = data.item.length, numnotava = 0;
-        // var notavaliable = [...data.Reservation, ...data.history]
+        
       })
     }
     useEffect(() => {
       getReservation();
     },[]
     )
-  // const { loading, error, data } = useQuery(ITEM_DATA);
-  // if (loading) return 'Loading...';
-  // if (error) return `Error! ${error.message}`;
-  // console.log(data)
-  // const user = JSON.parse(localStorage.User);
-  // var numall = data.item.length, numnotava = 0;
-  // var notavaliable = [...data.Reservation, ...data.history]
+  
   const reservButton = (props) => {
     
       return(
@@ -153,15 +139,10 @@ export default function DetailItem(){
   }
 
   const newReservation = () => {
-      const datenow = new Date();
       const dateTimeReserv = new Date(dateReserv);
       var arrTimeReserv = timeReserv.split(':');
       dateTimeReserv.setHours(arrTimeReserv[0]);
       dateTimeReserv.setMinutes(arrTimeReserv[1])
-      console.log(modalItem.itemCode)
-      // JSON.parse(localStorage.User).email
-      // modalItem.itemCode
-      // dateTimeReserv
       postReserv({variables:{
         
           username: JSON.parse(localStorage.User).email,
@@ -178,15 +159,6 @@ export default function DetailItem(){
   const ListItem = () => {
     return itemsData.map((item) => {
       var avaliable = !notavaliable.map(o => o.itemCode).includes(item.itemCode);
-      // var numnotava = 0;
-      // for (let j = 0; j < notavaliable.length; j++) {
-      //       if(item.itemCode === notavaliable[j].itemCode){
-      //         avaliable = false
-      //         numnotava+=1;
-      //         break;
-      //       }
-      //     }
-          // setavaitem(numall-numnotava)
       return (
         
         <Item data={item} isavaliable={avaliable} Button={reservButton} key={item._id}/>
@@ -206,12 +178,10 @@ export default function DetailItem(){
       var reservby = notavaliable.filter(i => i.itemCode === itemData.itemCode);
       if(reservby[0].status === "borrowing"){
         setBorrowed(toReturn(new Date(), new Date(reservby[0].createdAt)))
-        console.log(reservby[0].createdAt)
       }
       setReservby(reservby[0].username)
       setReservtype(reservby[0].status)
     }
-    console.log(itemData)
     setModalItem(itemData)
     setIsOpen(true);
   }
@@ -265,14 +235,12 @@ export default function DetailItem(){
         <div className='container my-5'>
           <div className='container m-3'>
             <div className='row'>
-              <div className='col-2'>
-                <img src="http://via.placeholder.com/150" className="img-fluid" alt="..." />
-              </div>
-              <div className='col-8' >
+              
+              <div className='col-10' >
                 <h1>{id.toUpperCase()}</h1>
                 
               </div>
-              <div className='col-2'>
+              <div className='col-1'>
                 <h1>{countAva}/{countItems}</h1>
               </div>
             </div>
