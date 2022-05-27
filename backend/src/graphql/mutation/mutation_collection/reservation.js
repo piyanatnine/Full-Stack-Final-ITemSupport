@@ -16,7 +16,7 @@ schemaComposer.Mutation.addFields({
         resolve : async (_, {username, itemCode, status, reservedTime}) => {
             const reservationdata = await Reservationmodel.findOne({itemCode: itemCode})
             if (reservationdata){
-                return {
+                return  {
                     username : "Error: item already reserved"
                 };
             }

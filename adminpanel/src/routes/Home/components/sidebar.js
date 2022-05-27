@@ -4,7 +4,7 @@ function Navbar({show, menu, selectPath}) {
 
   const MenuItem = () => {
     return menu.map((menu) => {
-      return <li className="text-xl text-gray-300 hover:text-gray-50">
+      return <li className="text-xl text-gray-300 hover:text-gray-50" key={menu.path}>
               <Link to={menu.path}>
                  {menu.title}
               </Link>

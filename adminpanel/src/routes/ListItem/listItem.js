@@ -10,6 +10,7 @@ import CategoryModel from "./components/categoryModel";
 function ListItem() {
   const [category, setCategory] = useState(null);
   const [item, setItem] = useState(null);
+  const [show, setShow] = useState("");
   const [deletePopup, setDeletePopup] = useState({status: false, target: null});
   const [editPopup, setEditPopup] = useState({status: false, target: null});
   const [createPopup, setCreatePopup] = useState({status: false});
@@ -17,7 +18,7 @@ function ListItem() {
 
   const getData = () => {
     axios({
-      url: process.env.GRAPHQL_URL,
+      url: process.env.REACT_APP_GRAPHQL_URL,
       method: "post",
       data: {
         query: `
@@ -47,7 +48,7 @@ function ListItem() {
       let graphql = `mutation { deleteItem(filter: { itemCode: "${data}" }, sort: ITEMCODE_ASC) {recordId record {itemCode}}}`
       console.log(graphql)
       axios({
-        url: process.env.GRAPHQL_URL,
+        url: process.env.REACT_APP_GRAPHQL_URL,
         method: "post",
         data: {
           "query": graphql
@@ -84,7 +85,7 @@ function ListItem() {
       `
       console.log(graphql)
       axios({
-        url: process.env.GRAPHQL_URL,
+        url: process.env.REACT_APP_GRAPHQL_URL,
         method: "post",
         data: {
           "query": graphql
@@ -116,7 +117,7 @@ function ListItem() {
       `
       console.log(graphql)
       axios({
-        url: process.env.GRAPHQL_URL,
+        url: process.env.REACT_APP_GRAPHQL_URL,
         method: "post",
         data: {
           "query": graphql
@@ -149,7 +150,7 @@ function ListItem() {
       `
       console.log(graphql)
       axios({
-        url: process.env.GRAPHQL_URL,
+        url: process.env.REACT_APP_GRAPHQL_URL,
         method: "post",
         data: {
           "query": graphql
@@ -174,28 +175,30 @@ function ListItem() {
 
   return (
     <div className="ListItem">
-      <div className='grid grid-cols-10'>
-          <div className='col-start-1 font-bold text-2xl'> List Item</div>
-          <div className='col-end-11 col-span-2 font-bold text-md justify-items-end'> 
-            <button className="disabled:opacity-25 bg-white border border-sky-500 hover:text-sky-600 text-sky-500 py-2 px-4 rounded"
-            onClick={() => setCategoryPopup({status:true})}
-            disabled={category == null}
+      <div className='grid grid-cols-6'>
+          <div className='col-start-1 font-bold text-3xl'> List Item</div>
+          <div className='col-end-7 col-span-5 flex font-bold text-md justify-end'> 
+            <button className="disabled:opacity-25 mx-3 bg-white border border-sky-500 hover:text-sky-600 text-sky-500 py-2 px-4 rounded"
+              onClick={() => setCategoryPopup({status:true})}
+              disabled={category == null}
             >
                 Add New Category
             </button>
-          </div>
-          <div className='col-end-12 font-bold text-md justify-items-end'> 
-            <button className="disabled:opacity-25 bg-white border border-sky-500 hover:text-sky-600 text-sky-500 py-2 px-4 rounded"
+            <button className="disabled:opacity-25 mx-3 bg-white border border-sky-500 hover:text-sky-600 text-sky-500 py-2 px-4 rounded"
             onClick={() => setCreatePopup({status:true})}
             disabled={item == null}
             >
                 Add New Item
             </button>
+            <input type="search" className="px-3 py-1.5 w-80 justify-center text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded m-0" 
+                placeholder="Search by Item Code or Name"
+                onChange={(event)=> {setShow(event.target.value)}}
+              />
           </div>
       </div>
       <div className="table-auto my-5 shadow-md p-5">
         {category && item && 
-          <Table dataList={category} dataItem={item} setDeletePopup={setDeletePopup} setEditPopup={setEditPopup}/>
+          <Table dataItem={item} setDeletePopup={setDeletePopup} setEditPopup={setEditPopup} show={show}/>
         }
       </div>
       {deletePopup.status ? <DeleteModel item={deletePopup.target} setDeletePopup={setDeletePopup} deleteItem={deleteItem}/> : null}

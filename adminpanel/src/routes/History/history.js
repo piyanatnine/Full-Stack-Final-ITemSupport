@@ -12,7 +12,7 @@ function History() {
 
   const getHistory = () => {
     axios({
-      url: process.env.GRAPHQL_URL,
+      url: process.env.REACT_APP_GRAPHQL_URL,
       method: "post",
       data: {
         query: `
@@ -46,7 +46,7 @@ function History() {
       `
       console.log(graphql)
       axios({
-        url: process.env.GRAPHQL_URL,
+        url: process.env.REACT_APP_GRAPHQL_URL,
         method: "post",
         data: {
           "query": graphql
@@ -72,8 +72,14 @@ function History() {
     return (<>
       {history && 
       <div className="History">
-        <div className="grid">
-          <div className='col-start-1 font-bold text-2xl'> Borrow History</div>
+        <div className="grid grid-cols-5">
+          <div className='font-bold text-3xl'> Borrow History</div>
+          <div className="col-end-6">
+              <input type="search" className="px-3 py-1.5 w-full justify-center text-base font-normal text-gray-700 bg-white border border-solid border-gray-300 rounded m-0" 
+                placeholder="Search by Item Code or User"
+                onChange={(event)=> {setShow(event.target.value)}}
+              />
+          </div>
         </div>
         <div className="table-auto my-5 shadow-md p-5">
           <Table dataHistory={history} show={show} setUpdatePopup={setUpdatePopup}/>

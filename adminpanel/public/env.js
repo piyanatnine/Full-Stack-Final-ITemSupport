@@ -65,6 +65,8 @@ window.env = {
   "PROMPT": "$P$G",
   "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Modules",
   "PUBLIC": "C:\\Users\\Public",
+  "PyCharm Professional Edition with Anaconda plugin": "C:\\Program Files\\JetBrains\\PyCharm Professional Edition with Anaconda plugin 2020.1.2\\bin;",
+  "REACT_APP_GRAPHQL_URL": "http://localhost:3001/graphql",
   "SESSIONNAME": "Console",
   "SystemDrive": "C:",
   "SystemRoot": "C:\\WINDOWS",

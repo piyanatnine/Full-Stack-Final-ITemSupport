@@ -5,7 +5,7 @@ import { Route, Routes, useParams } from "react-router-dom";
 //Components
 import Navbar from "./components/navbar";
 import Sidebar from "./components/sidebar";
-import Footer from "./components/footer";
+// import Footer from "./components/footer";
 import OverViewForum from './components/overview';
 import ListItem from '../ListItem/listItem';
 import History from '../History/history';
