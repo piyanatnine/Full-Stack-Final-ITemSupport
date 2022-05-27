@@ -1,4 +1,4 @@
-function Table({dataList, dataItem, setDeletePopup, setEditPopup}) {
+function Table({ dataItem, setDeletePopup, setEditPopup, show}) {
     const DataItem = () => {
         return dataItem.map((data) => {
             const Tags = () => {
@@ -6,6 +6,7 @@ function Table({dataList, dataItem, setDeletePopup, setEditPopup}) {
                     return(<Labels tag={tag} key={data.itemCode+"-"+tag}/>)
                 }))
             }
+            if (show === "" || data.itemCode.includes(show.toLowerCase()) || data.name.toLowerCase().includes(show.toLowerCase())){
             return (
             <tr className="bg-white border-b" key={data.itemCode}>
                 <td className="p-4">{data.itemCode}</td>
@@ -20,7 +21,7 @@ function Table({dataList, dataItem, setDeletePopup, setEditPopup}) {
                 <td className="p-4" onClick={() => setDeletePopup({status: true, target: data})}>
                     <span className="text-red-600 hover:text-red-800" >Delete</span>
                 </td>
-            </tr>)
+            </tr>)}
         })
     }
     

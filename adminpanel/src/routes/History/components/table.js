@@ -10,15 +10,16 @@ function Table({dataHistory, show, setUpdatePopup}) {
 
     const DataItem = () => {
 
-        const reverse = dataHistory
-
-        return (reverse.map((data) => {
+        const dataReverse = dataHistory
+        dataReverse.reverse()
+        
+        return (dataReverse.map((data) => {
 
             const Status = () => {
                 return(<Labels status={data.status} key={data.status+"-"+data._id}/>)
             }
 
-            if (data.status === show || show === "" || data.username.includes(show)){
+            if (data.status === show || show === "" || data.username.includes(show) || data.itemCode.includes(show)){
             return (
             <tr className="bg-white border-b" key={data._id}>
                 <td className="p-4"><Status/></td>
@@ -40,7 +41,7 @@ function Table({dataHistory, show, setUpdatePopup}) {
                 
             </tr>)
             }
-            return<></>
+            return<tr key={data._id}></tr>
         }))
     }
     
