@@ -1,0 +1,32 @@
+{
+    "$jsonSchema": {
+        "required": [
+            "username",
+            "itemCode",
+            "status"
+        ],
+        "properties": {
+            "username": {
+                "bsonType": "string",
+                "description": "Username of borrower, string (required)"
+            },
+            "itemCode": {
+                "bsonType": "string",
+                "description": "Name of item borrowed, string (required)"
+            },
+            "status": {
+                "bsonType": "string",
+                "description": "Status of borrowing, string (required)"
+            },
+            "createdAt": {
+                "bsonType": "date"
+            },
+            "updatedAt": {
+                "bsonType": "date"
+            },
+            "_ver": {
+                "bsonType": "int"
+            }
+        }
+    }
+}

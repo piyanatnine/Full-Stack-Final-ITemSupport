@@ -1,0 +1,37 @@
+{
+    "$jsonSchema": {
+        "required": [
+            "itemCode",
+            "username",
+            "reservedTime",
+            "status"
+        ],
+        "properties": {
+            "itemCode": {
+                "bsonType": "string",
+                "description": "Item code, string (required)"
+            },
+            "username": {
+                "bsonType": "string",
+                "description": "Username, string (required)"
+            },
+            "reservedTime": {
+                "bsonType": "date",
+                "description": "Reserved time, date (required)"
+            },
+            "status": {
+                "bsonType": "string",
+                "description": "Status, string (required)"
+            },
+            "createdAt": {
+                "bsonType": "date"
+            },
+            "updatedAt": {
+                "bsonType": "date"
+            },
+            "_ver": {
+                "bsonType": "int"
+            }
+        }
+    }
+}

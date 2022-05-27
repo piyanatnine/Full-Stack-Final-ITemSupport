@@ -1,0 +1,27 @@
+{
+   "$jsonSchema": {
+      "required": [
+         "username",
+         "name",
+         "privilege"
+      ],
+      "properties": {
+         "username": {
+            "bsonType": "string",
+            "description": "Username, string (required)"
+         },
+         "name": {
+            "bsonType": "string",
+            "description": "Displayed name, string (required)"
+         },
+         "imageUrl": {
+            "bsonType": "string",
+            "description": "Image url, string"
+         },
+         "privilege": {
+            "bsonType": "int",
+            "description": "Privilege level, int (required)"
+         }
+      }
+   }
+}

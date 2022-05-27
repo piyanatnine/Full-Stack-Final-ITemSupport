@@ -1,0 +1,30 @@
+{
+  "$jsonSchema": {
+    "required": [
+      "itemCode",
+      "name"
+    ],
+    "properties": {
+      "itemCode": {
+        "bsonType": "string",
+        "description": "Item code, string (required)"
+      },
+      "name": {
+        "bsonType": "string",
+        "description": "Item name, string (required)"
+      },
+      "description": {
+        "bsonType": "string",
+        "description": "Item description, string"
+      },
+      "imageUrl": {
+        "bsonType": "string",
+        "description": "Image url, string"
+      },
+      "tags": {
+        "bsonType": "array",
+        "description": "Tags, array"
+      }
+    }
+  }
+}
